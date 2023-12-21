@@ -28,6 +28,20 @@
 \renewcommand{\o}{\mathrm o}
 \newcommand{\sube}{\subseteq}
 
+\newtheorem{theoreme}{Th\'eor\`eme}
+\newtheorem{lemme}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollaire}{Corollaire}
+\newtheorem*{remarque}{Remarque}
+\newtheorem*{question}{Question}
+\theoremstyle{definition}
+\newtheorem*{definition}{Définition}
+\newtheorem*{exemples}{Exemples}
+\newtheorem*{exemple}{Exemple}
+\newtheorem{exercice}{Exercice}
+\theoremstyle{remark}
+\newtheorem*{preuve}{Preuve}
+
 \title{Pavages périodiques apériodiques du plan}
 \author{Matteo Wei et Nathan Boyer}
 
@@ -37,7 +51,31 @@
 
 \section{Introduction}
 
-\section{Indécidabilité du problème du pavage périodique}
+\section{Indécidabilité du problème du domino}
+
+\subsection{Le problème du domino}
+
+\begin{definition}[Problème du domino]
+  Existe-t-il un algorithme qui, étant donné un ensemble fini de tuiles de Wang, décide s'il existe un pavage du plan avec ces tuiles?
+\end{definition}
+
+\begin{proposition}
+  La conjecture de Wang implique que le problème du domino est décidable.
+  \thlabel{prop:Wang->domino}
+\end{proposition}
+
+\begin{lemme}[compacité]
+  Soit $T$ un ensemble fini de tuiles de Wang. Alors $T$ pave le plan si, et seulement si, pour tout $n\in\N$ $T$ pave un carré de taille $n\times n$.
+  \thlabel{lem:comp}
+\end{lemme}
+
+\begin{preuve}[\thref{lem:comp}]
+  On fixe un ensemble dénombrable de variables $V$ et considère le langage contenant un symbole de constante $O$, deux symboles de relations binaires $\mathcal H$ et $\mathcal V$, ainsi que, pour chaque tuile $t\in T$, un symbole de relation unaire aussi noté $t$.
+  
+  On note $T_{\mathcal H}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur de droite de $t$ est la couleur de gauche de $u$. De même, on note $T_{\mathcal V}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur du haut de $t$ est la couleur du bas de $u$.
+
+  On propose l'axiomatisation du premier ordre suivante pour les $T$-pavages:
+\end{preuve}
 
 \section{Pavage apériodique pour 11 tuiles et 4 couleurs}
 
