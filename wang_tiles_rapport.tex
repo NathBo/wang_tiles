@@ -47,8 +47,6 @@
 \theoremstyle{remark}
 \newtheorem{preuve}{Preuve}
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
 
 \title{Pavages périodiques apériodiques du plan}
 \author{Matteo Wei et Nathan Boyer}
@@ -134,13 +132,29 @@
 
 \begin{definition}[Transducteur]
     
-Un transducteur est un automate qui lit un mot bifini et écrit sur une bande bifinie
+Un transducteur $\tau$ est un automate qui lit une bande d'entrée bifinie et écrit sur une bande de sortie bifinie
 
 \end{definition}
 
 On peut voir un pavage comme un transducteur.
 
-En effet, $\forall t \in T$
+En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'état w vers l'état e qui lit n et écrit s
+
+\begin{definition}[$w \tau w'$]
+    
+On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur associé à l'ensemble de tuiles T
+
+
+\end{definition}
+
+\begin{definition}[Run]
+    
+Une run d'un transducteur $\tau$ sur I un intervalle de $\Z$ est une suite de mots bifinis ${(w_i)}_{i \in I}$
+telle que $\forall i \in I, w_i \tau w_{i+1}$
+
+
+
+\end{definition}
 
 
 

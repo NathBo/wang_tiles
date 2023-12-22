@@ -259,6 +259,9 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty
+INPUT ./wang_tiles_rapport.aux
+INPUT ./wang_tiles_rapport.aux
+INPUT wang_tiles_rapport.aux
 OUTPUT wang_tiles_rapport.aux
 INPUT c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -268,6 +271,12 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT ./wang_tiles_rapport.out
+INPUT ./wang_tiles_rapport.out
+INPUT wang_tiles_rapport.out
+INPUT wang_tiles_rapport.out
+INPUT ./wang_tiles_rapport.out
+INPUT ./wang_tiles_rapport.out
 OUTPUT wang_tiles_rapport.out
 OUTPUT wang_tiles_rapport.pdf
 INPUT c:/texlive/2023/texmf-dist/tex/latex/bookmark/bookmark.sty
@@ -275,8 +284,6 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/bookmark/bookmark.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
-INPUT c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
@@ -337,10 +344,8 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmbx8.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmbx6.tfm
+INPUT c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
