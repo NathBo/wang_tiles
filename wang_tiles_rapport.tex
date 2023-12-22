@@ -286,7 +286,14 @@ Cependant, on sait qu'un transducteur $\tau$ n'est pas apériodique si:
     \item $\exists k \in \N$ tel que $\exists w$ avec $w \tau^k w$ ($\tau$ est périodique)
 \end{itemize}
 
-L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$
+L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$ et tester si il y a un des 2 cas précédents,
+jusqu'à ce que l'ordinateur ne dispose plus d'assez de mémoire (en effet, comme on l'a vu plus haut, ce problème est indécidable).
+Dans ce cas, on doit alors étudier le cas à la main.
+
+On rajoute cependant une petite optimisation, qui est d'enlever les puits et sources des graphes à chaque étape pour les simplifier
+(les puits et les sources ne pouvant pas servir à grand chose quand on veut créer une suite bifinie).
+
+A l'exception d'un cas, tous les cas furent résolus par l'ordinateur, et ainsi le résultat recherché fut prouvé.
 
 
 \end{document}
