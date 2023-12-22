@@ -45,6 +45,7 @@
 \newtheorem{exemple}{Exemple}
 \newtheorem{exercice}{Exercice}
 \theoremstyle{remark}
+\newtheorem{lemma}[theoreme]{Lemma}
 \newtheorem{preuve}{Preuve}
 
 
@@ -222,8 +223,70 @@ La relation de bisimilarité (qui est la plus grande bisimulation) est une relat
 
 \end{definition}
 
-\subsection{L'algorithme}
+\subsection{Générer tous les ensembles de Wang de cardinal moins de 10}
 
+Soit $\tau$ un ensemble de Wang. On dit que $\tau$ est minimal apériodique si $\tau$ est apériodique
+et qu'aucun sous-ensemble strict de $\tau$ n'est apériodique.
+
+\;
+
+Dans toute cette partie, on va s'intéresser au graphe orienté G = (V,E) lié au transducteur de $\tau$.
+
+On a alors les résultats suivants:
+
+\begin{lemma}
+
+\begin{itemize}
+    \item Soit $u,v \in V \text{ avec } uv \in E \text{ mais pas de chemin de v vers u}$, alors $\tau$ n'est pas apériodique minimal
+    \item Si G a une composante fortement connexe qui est un cycle, alors $\tau$ n'est pas apériodique minimal
+    \item Si G n'a qu'un sommet, alors $\tau$ n'est pas apériodique
+    \item Si $|E|-|V| \le 2$, alors $\tau$ n'est pas apériodique minimal
+\end{itemize}
+
+\end{lemma}
+
+\begin{proof}
+    
+Pour le premier point, (uv) correspond à un domino t qui ne peut apparaître qu'une fois par colonne,
+donc, si $\tau$ pave le plan, alors $\tau \setminus \{t \}$ aussi, d'où le résultat.
+
+\;
+
+Pour le deuxième point, supposons qu'il existe une telle composante. Cela veut donc dire qu'il existe $S \sube T$
+tel qu'à chaque fois qu'un des dominos apparaît, la ligne entière est périodique
+
+Si T est apériodique, on ne peut pas avoir un pavage où les dominos de S apparaissent dans deux rangées différentes, car on pourrait en déduire un pavage périodique.
+
+En conséquence, les tuiles de S apparaissent dans au plus une ligne, et en utilisant le même argument que précédemment, nous déduisons que $T \setminus S$ pave le plan.
+
+\;
+
+Pour le troisième point, si G n'a qu'un sommet mais que $\tau$ pave le plan, alors on peut construire un pavage
+du plan tel que chaque colonne est la même.
+
+\;
+
+La preuve du dernier point est très longue (plus de 15 pages) et ne sera donc pas détaillée ici.
+
+\end{proof}
+
+On peut également supposer que G ne contient pas de sommet isolé.
+
+On génère alors tous les graphes avec au plus 10 arêtes et vérifiant ces différnetes propriétés par ordinateur
+et on trouve qu'il en existe 77809.
+
+\subsection{Tester l'apériodicité}
+
+On veut maintenant tester l'apériodicité de ces différents transducteurs.
+
+Cependant, on sait qu'un transducteur $\tau$ n'est pas apériodique si:
+
+\begin{itemize}
+    \item $\exists k \in \N$ tel que $\nexists w,w'$ avec $w \tau^k w'$ ($\tau$ ne pave pas le plan)
+    \item $\exists k \in \N$ tel que $\exists w$ avec $w \tau^k w$ ($\tau$ est périodique)
+\end{itemize}
+
+L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$
 
 
 \end{document}
