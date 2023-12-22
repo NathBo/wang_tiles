@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  22 DEC 2023 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  22 DEC 2023 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -800,16 +800,16 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 64.
+(Font)              <10.95> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 64.
+(Font)              <8> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 64.
+(Font)              <6> on input line 63.
  [1
 
 
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 116.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 136.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [2{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [3] (./wang_tiles_rapport.aux)
@@ -821,18 +821,18 @@ Package rerunfilecheck Info: File `wang_tiles_rapport.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26074 strings out of 474928
- 493264 string characters out of 5763562
+ 26075 strings out of 474928
+ 493276 string characters out of 5763562
  1935785 words of memory out of 5000000
  47147 multiletter control sequences out of 15000+600000
  624983 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,12n,107p,10982b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,12n,107p,10982b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on wang_tiles_rapport.pdf (3 pages, 236115 bytes).
+Output written on wang_tiles_rapport.pdf (3 pages, 238836 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

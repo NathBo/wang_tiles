@@ -57,13 +57,33 @@
 
 \section{Introduction}
 
-\begin{definition}
+\begin{definition}[Ensemble de Wang]
     
 Un ensembles de Wang est un triplet (H,V,T) où H et V sont respectivement les couleurs horizontales et verticales
-
 et où $T \sube H^2 * V^2$ est l'ensemble des dominos
 
 \end{definition}
+
+\begin{definition}[Pavage]
+
+Soit $X \sube \Z^2$ et $\tau$ un ensemble de Wang
+
+Un pavage de X par $\tau$ est une fonction $f:X \to T$ avec:
+
+$\forall (x,y) \in X, {f(x,y)}_e = {f(x+1,y)}_w et {f(x,y)}_n = {f(x,y+1)}_s$
+
+Un pavage du plan par $\tau$ est un pavage de $\Z^2$
+
+On dit que $\tau$ est périodique s'il existe un pavage du plan périodique par $\tau$
+
+(càd que $\exists (x,y) \in Z^2 \setminus (0,0), \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y+v)$)
+
+On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ces pavages ne sont pas périodiques
+
+    
+\end{definition}
+
+
 
 \section{Indécidabilité du problème du domino}
 
