@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
@@ -28,6 +29,9 @@
 \renewcommand{\o}{\mathrm o}
 \newcommand{\sube}{\subseteq}
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
 \title{Pavages périodiques apériodiques du plan}
 \author{Matteo Wei et Nathan Boyer}
 
@@ -40,6 +44,17 @@
 \section{Indécidabilité du problème du pavage périodique}
 
 \section{Pavage apériodique pour 11 tuiles et 4 couleurs}
+
+\begin{definition}[Transducteur]
+    
+Un transducteur est un automate qui lit un mot bifini et écrit sur une bande bifinie
+
+\end{definition}
+
+On peut voir un pavage comme un transducteur.
+
+En effet, $\forall t \in T$
+
 
 
 \end{document}
