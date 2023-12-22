@@ -57,6 +57,14 @@
 
 \section{Introduction}
 
+\begin{definition}
+    
+Un ensembles de Wang est un triplet (H,V,T) où H et V sont respectivement les couleurs horizontales et verticales
+
+et où $T \sube H^2 * V^2$ est l'ensemble des dominos
+
+\end{definition}
+
 \section{Indécidabilité du problème du domino}
 
 \subsection{Le problème du domino}
@@ -142,7 +150,7 @@ En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'é
 
 \begin{definition}[$w \tau w'$]
     
-On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur associé à l'ensemble de tuiles T
+On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur $\tau$
 
 
 \end{definition}
@@ -152,7 +160,40 @@ On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $
 Une run d'un transducteur $\tau$ sur I un intervalle de $\Z$ est une suite de mots bifinis ${(w_i)}_{i \in I}$
 telle que $\forall i \in I, w_i \tau w_{i+1}$
 
+\end{definition}
 
+On définit également la composition de 2 transducteurs de manière naturelle
+
+On peut alors reformuler le problème initial de la façon suivante:
+
+\begin{proposition}
+    
+Un ensemble de Wang admet un pavage périodique si et seulement si $\exists w \text{ mot bifini }, k \in \N, \text{ avec } w \tau^k w'$
+
+\end{proposition}
+
+\begin{definition}[Equivalence de 2 ensembles de Wang]
+    
+On ne s'intéresse plus aux ensembles de Wang que sous le point de vue des transducteurs
+
+Ainsi, 2 ensembles de Wang sont équivalents ssi leurs transducteurs définissent la même relation
+
+càd ssi $\forall w,w', \; w \tau w' \iff w \tau' w'$
+
+
+\end{definition}
+
+\begin{definition}[Simulation d'un transducteur]
+
+Soit $\tau = (H,V,T)$ un transducteur
+
+Une simulation R est une relation sur H telle que 
+    
+$uRu' \iff \forall v \in H, a,b \in V \text{ avec } (u,v,a,b) \in T, \exists v' \in V, (u',v',a,b) \in T$
+
+Une bisimulation est simulation R telle que $R^{-1}$ soit une relation
+
+La relation de bisimilarité (qui est la plus grande bisimulation) est une relation d'équivalence.
 
 \end{definition}
 
