@@ -4,6 +4,8 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \setlength{\parindent}{0pt}
@@ -28,6 +30,22 @@
 \renewcommand{\O}{\mathrm O}
 \renewcommand{\o}{\mathrm o}
 \newcommand{\sube}{\subseteq}
+\renewcommand{\H}{\mathrel{\mathcal H}}
+\newcommand{\V}{\mathrel{\mathcal V}}
+
+\newtheorem{theoreme}{Th\'eor\`eme}
+\newtheorem{lemme}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollaire}{Corollaire}
+\newtheorem{remarque}{Remarque}
+\newtheorem{question}{Question}
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+\newtheorem{exemples}{Exemples}
+\newtheorem{exemple}{Exemple}
+\newtheorem{exercice}{Exercice}
+\theoremstyle{remark}
+\newtheorem{preuve}{Preuve}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -41,7 +59,76 @@
 
 \section{Introduction}
 
-\section{Indécidabilité du problème du pavage périodique}
+\section{Indécidabilité du problème du domino}
+
+\subsection{Le problème du domino}
+
+\begin{definition}[Problème du domino]
+  Existe-t-il un algorithme qui, étant donné un ensemble fini de tuiles de Wang, décide s'il existe un pavage du plan avec ces tuiles?
+\end{definition}
+
+\begin{proposition}
+  La conjecture de Wang implique que le problème du domino est décidable.
+  \thlabel{prop:Wang->domino}
+\end{proposition}
+
+\begin{lemme}[compacité]
+  Soit $T$ un ensemble fini de tuiles de Wang. Alors $T$ pave le plan si, et seulement si, pour tout $n\in\N$, $T$ pave un carré de taille $n\times n$.
+  \thlabel{lem:comp}
+\end{lemme}
+
+\begin{preuve}[\thref{lem:comp}]
+  Le sens direct est trivial. Pour le sens réciproque, supposons que pour tout $n\in\N$, $T$ pave un carré de taille $n\times n$.
+
+  On fixe un ensemble dénombrable de variables $V$ et considère le langage contenant un symbole de constante $O$, deux symboles de relations binaires $\mathcal H$ et $\mathcal V$, ainsi que, pour chaque tuile $t\in T$, un symbole de relation unaire aussi noté $t$.
+  
+  On note $T_{\mathcal H}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur de droite de $t$ est la couleur de gauche de $u$. De même, on note $T_{\mathcal V}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur du haut de $t$ est la couleur du bas de $u$.
+
+  On propose l'axiomatisation $\mathrm{Th}$ du premier ordre suivante pour les $T$-pavages:
+  \begin{align}
+    \tag{$\varphi_{\mathcal H}$}
+    \forall x\forall y (x\H y\rightarrow\forall z((x\H z\rightarrow y=z)\land (z\H y\rightarrow x=z)))\\
+    \tag{$\varphi_{\mathcal V}$}
+    \forall x\forall y (x\V y\rightarrow\forall z((x\V z\rightarrow y=z) \land (z\V y\rightarrow x=z)))\\
+    \tag{$\psi_{\mathrm{un}}$}
+    \forall x\bigvee_{t\in T}\Bigl(t(x)\land\bigwedge_{u\in T\setminus\{t\}}\lnot u(x)\Bigr)\\
+    \tag{$\psi_{\mathcal H}$}
+    \forall x\forall y \Bigl( x\H y \rightarrow \bigvee_{(t,u)\in T_{\mathcal H}}(t(x)\land u(y))\Bigr)\\
+    \tag{$\psi_{\mathcal V}$}
+    \forall y \Bigl( x\V y \rightarrow \bigvee_{(t,u)\in T_{\mathcal V}}(t(x)\land u(y))\Bigr)
+  \end{align}
+
+  Les variables s'incarnent en des positions sur lesquelles les tuiles sont placées. Les formules $\varphi_\cdot$ axiomatisent le réseau entier du plan, et les formules $\psi_\cdot$ correspondent au placement des tuiles sur les cases.
+
+  Soit $n\in\N$. Considérons
+  \begin{align}
+    \tag{$\theta_n$}
+    x_{0,0}=O\land\bigwedge_{i=-n}^n\bigwedge_{j=-n}^{n-1} x_{i,j}\H x_{i,j+1}\land \bigwedge_{i=-n}^{n-1}\bigwedge_{j=-n}^n x_{i,j}\V x_{i+1,j}
+  \end{align}
+  et notons $\theta'_n=\exists(x_{i,j})_{-n\le i,j\le n}\theta_n$.
+
+  L'hypothèse que $T$ pave des carrés de taille arbitrairement grande donne en particulier que pour tout $n\in\N$, $\mathrm{Th}\cup \{\theta'_n\}$ admet un modèle (il suffit de prendre un pavage d'un carré $C_n$ de taille $2n+1\times 2n+1$ et de prendre pour $O^{C_n}$ le centre du carré). On en déduit que $\displaystyle\mathrm{Th}\cup \set{\theta'_n|n\in\N}$ est finiment consistante, donc consistante par compacité de la logique du premier ordre. Fixons-en donc un modèle $\mathfrak M$, dont on note $M$ l'ensemble sous-jacent.
+
+  Soit $n\in\N$. Remarquons que $\varphi_\mathcal H$ et $\varphi_\mathcal V$ impliquent que pour $n\in\N$ il n'y a qu'un seul $(a_{i,j}^n)_{-n\le i,j\le n}\in M^{(2n+1)^2}$ tel que $\mathfrak M\vdash \theta_n\left((a_{i,j})_{-n\le i,j\le n}\in M^{(2n+1)^2}\right)$, et de plus que pour $m\ge n$, et $-n\le i,j\le n$, on a $a_{i,j}^n=a_{i,j}^m$. Il s'agit en effet de l'unique position $i$ lignes au dessus et $j$ colonnes à droite de $O^\mathfrak M$; on note donc $a_{i,j}$ cet élément.
+
+  On en déduit également que pour tout $(i,j)\in\Z^2$, $\mathfrak M\vdash a_{i,j}\H a_{i,j+1}\land a_{i,j}\V a_{i+1,j}$. On déduit alors des trois derniers axiomes de $\mathrm{Th}$ que placer à la position $(i,j)\in\Z^2$ l'unique tuile $t$ telle que $\mathfrak M\vdash t(a_{i,j})$ donne un $T$-pavage du plan, ce qui conclut. 
+\end{preuve}
+
+\begin{preuve}[\thref{prop:Wang->domino}]
+  Supposons que la conjecture de Wang est vrai.
+  
+  Considérons l'algorithme, étant donné un ensemble fini $T$ de tuiles de Wang, consistant à tester, pour chaque $n\in\N$, tous les $T$-coloriages possibles de $[\![0,n]\!]^2$, jusqu'à soit trouver un $T$-pavage prolongeable en $T$-pavage périodique du plan, auquel cas on accepte, soit trouver un $n$ tel qu'aucun des $T$-coloriages de $[\![0,n]\!]^2$ n'est un $T$-pavage, auquel cas on rejette.
+
+  Soit $T$ un ensemble fini de tuiles. Il y a deux cas de figures possibles:
+  \begin{itemize}
+    \item Soit $T$ ne pave pas le plan, auquel cas le \thref{lem:comp} assure que l'algorithme rejette.
+    \item Soit $T$ pave le plan, auquel cas la conjecture de Wang assure qu'il existe un $T$-pavage périodique, et l'algorithme accepte.
+  \end{itemize}
+
+  Ainsi, cet algorithme décide le problème du domino.
+\end{preuve}
+
+\subsection{}
 
 \section{Pavage apériodique pour 11 tuiles et 4 couleurs}
 
