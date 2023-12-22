@@ -155,7 +155,115 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
   Ainsi, cet algorithme décide le problème du domino.
 \end{preuve}
 
-\subsection{}
+\subsection{Indécidabilité du problème du domino fixé}
+
+\begin{definition}[problème du domino fixé]
+  Existe-t-il un algorithme qui, étant donné un ensemble fini non vide $T$ de tuiles de Wang et $t\in T$ décide s'il existe un pavage du quart de plan $\N^2$ avec la tuile $t$ en $(0,0)$?
+\end{definition}
+
+Par une preuve similaire à celle du \thref{lem:comp}, on montre:
+
+\begin{lemme}[compacité]
+  Soit $T$ un ensemble non vide de tuiles de Wang, et $t\in T$. Alors il existe un $T$-pavage de $\N^2$ avec $t$ en $(0,0)$ si, et seulement si, pour tout $n\in\N$ il existe un $T$-pavage de $[\![0,n]\!]^2$ avec $t$ en $(0,0)$.
+  \thlabel{lem:comp2}
+\end{lemme}
+
+\begin{proposition}
+  Le problème du domino fixé est indécidable.
+  \thlabel{prop:fix}
+\end{proposition}
+
+Un calcul d'une machine de Turing peut naturellement être représenté dans le plan, et on peut facilement en déduire une manière d'encoder une machine de Turing par un ensemble de Wang. 
+
+\begin{definition}
+  Soit $\mathcal M=(Q,\Sigma,\Gamma,\Delta,q_{\mathrm{init}})$ une machine de Turing. On définit un ensemble de dominos de Wang $T_\mathcal M$, comme dans la figure \ref{fig:tiles}.
+\end{definition}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale = 1]
+    \fill [fill = Gray] (14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
+    \fill [fill = Gray] (14.5, 4) circle (8 pt);
+    \fill [fill = Black] (13.5,3) rectangle (1/4+13.5,5);
+    \fill [fill = Black] (13.5,3) rectangle (15.5,3+1/4);
+    \fill [fill = Black] (3,3) rectangle (5,3+1/4);
+    \foreach \x in {1, 2, 4}
+    \fill [fill = BrickRed] (3*\x,0) rectangle (3*\x+2,2);
+    \fill [fill = Red] (6, 0) -- (7, 1) -- (8, 0) -- cycle;
+    \foreach \x in {1, 2, 3, 4, 5}
+    \fill [fill = BrickRed] (3*\x,-3) rectangle (3*\x+2,-1);
+    \fill [fill = Red] (6, -3) -- (7, -2) -- (8, -3) -- cycle;
+    \fill [fill = Red] (9, -3) -- (10, -2) -- (11, -3) -- cycle;
+    \foreach \x in {1, 2, 4}
+    {\fill [fill = Black] (3*\x,0) rectangle (3*\x+1/4,2);
+    \fill [fill = White] (3*\x+2-1/4, 0) rectangle (3*\x+2, 2);}
+    \foreach \x in {1, 2, 3, 4, 5}
+    {\fill [fill = White] (3*\x,-3) rectangle (3*\x+1/4,-1);
+    \fill [fill = White] (3*\x+2-1/4, -3) rectangle (3*\x+2, -1);}
+    \fill [fill = RoyalBlue] (7-1/8, 0) -- (7-1/8, 1+1/8) -- (7+1/8, 1-1/8) -- (7+1/8, 0) --cycle;
+    \fill [fill = Blue] (8, 1+1/8) -- (7-1/8, 1+1/8) -- (7+1/8, 1-1/8) -- (8, 1-1/8) --cycle;
+    \fill [fill = Blue] (13-1/8, 1-1/8) rectangle (13+1/8, 2);
+    \fill [fill = Blue] (13-1/8, 1-1/8) rectangle (14, 1+1/8);
+    \fill [fill = Blue] (13, 1) circle (8 pt);
+    \fill [fill = Black] (8-1/4, 3/2-1/8) rectangle (8, 3/2+1/8);
+    \fill [fill = Black] (14, 1/2+1/8) -- (14-1/4, 1/2) -- (14, 1/2-1/8) -- cycle;
+    \fill [fill = RoyalBlue] (7-1/8, -3) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (7+1/8, -3) --cycle;
+    \fill [fill = Blue] (8, -2+1/8) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (8, -2-1/8) --cycle;
+    \fill [fill = RoyalBlue] (10+1/8, -3) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (10-1/8, -3) --cycle;
+    \fill [fill = Blue] (9, -2+1/8) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (9, -2-1/8) --cycle;
+    \fill [fill = Black] (8-1/4, -3+3/2-1/8) rectangle (8, -3+3/2+1/8);
+    \fill [fill = Black] (14, -3+1/2+1/8) -- (14-1/4, -3+1/2) -- (14, -3+1/2-1/8) -- cycle;
+    \fill [fill = Black] (9+1/4, -3+1/2-1/8) rectangle (9, -3+1/2+1/8);
+    \fill [fill = Black] (15, -3+3/2+1/8) -- (15+1/4, -3+3/2) -- (15, -3+3/2-1/8) -- cycle;
+    \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+    \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+    \fill [fill = Blue] (13, -3+1) circle (8 pt);
+    \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+    \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+    \fill [fill = Blue] (13, -3+1) circle (8 pt);
+    \fill [fill = Blue] (16-1/8, -3+1-1/8) rectangle (16+1/8, -3+2);
+    \fill [fill = Blue] (16+1/8, -3+1-1/8) rectangle (15, -3+1+1/8);
+    \fill [fill = Blue] (16, -3+1) circle (8 pt);
+    \foreach \x in {1, 2, 4}
+    \draw (3*\x,0) rectangle (3*\x+2,2);
+    \foreach \x in {1, 4.5}
+    \draw (3*\x,3) rectangle (3*\x+2,5);
+    \foreach \x in {1, 2, 3, 4, 5}
+    \draw (3*\x,-3) rectangle (3*\x+2,-1);
+    \node at (4, 2.5) {${\mathrm{let}}^{\mathrm S}(\_)$};
+    \node at (14.5, 2.5) {$\mathrm{init}$};
+    \node at (4, -0.5) {${\mathrm{let}}^\mathrm W(s)$};
+    \node at (7, -0.5) {$\mathrm{trans}_\rightarrow^\mathrm W(\delta_\rightarrow)$};
+    \node at (13, -0.5) {$\mathrm{head}_\leftarrow^\mathrm W(q,s)$};
+    \node at (4, -3.5) {${\mathrm{let}}(s)$};
+    \node at (7, -3.5) {$\mathrm{trans}_\rightarrow(\delta_\rightarrow)$};
+    \node at (13, -3.5) {$\mathrm{head}_\leftarrow(q,s)$};
+    \node at (10, -3.5) {$\mathrm{trans}_\leftarrow(\delta_\leftarrow)$};
+    \node at (16, -3.5) {$\mathrm{head}_\rightarrow(q,s)$};
+  \end{tikzpicture}
+  \caption{On se donne une couleur par symbole dans l'alphabet de travail, et une autre par état de l'automate (ici, le blanc représente le caractère blanc $\_$, le gris l'état initial et le noir est une couleur supplémentaire). Les dominos sont formés de deux couches superposées: celle du fond est constituée d'aplats de couleurs de symbole, celle du dessus porte des rubans portant des couleurs d'états.\\$T_\mathcal M$ comporte un domino $\mathrm{let}(s)$ et un domino $\mathrm{let}^\mathrm W(s)$ par symbole $s\in\Gamma$, un domino $\mathrm{head}_\leftarrow(q,s)$, un domino $\mathrm{head}_\rightarrow(q,s)$ et un domino $\mathrm{head}_\leftarrow^\mathrm W(q,s)$ par couple $(q,s)\in Q\times\Gamma$, un domino $\mathrm{trans}_\rightarrow(\delta_\rightarrow)$ et un domino $\mathrm{trans}_\rightarrow^\mathrm W(\delta_\rightarrow)$ par transition droite $\delta_\rightarrow$, et un domino $\mathrm{trans}_\leftarrow(\delta_\leftarrow)$ par transition gauche $\delta_\leftarrow$.}
+  \label{fig:tiles}
+\end{figure}
+
+\begin{preuve}[\thref{prop:fix}]
+  Soit $\mathcal M$ une machine de Turing.
+
+  Supposons que $T_\mathcal M$ pave $\N^2$, avec $\mathrm{init}$ en position $(0,0)$. Remarquons que la première ligne est nécessairement de la forme $\mathrm{init},\mathrm{let}^\mathrm S(\_), \mathrm{let}^\mathrm S(\_),\ldots$. Elle correspond à la configuration initiale de $\mathcal M$ sur la bande blanche.
+
+  On prouve maintenant par récurrence sur $i\in\N$ que lire les couleurs de fond des côtés hauts des domino de la $i$-ème ligne donne le résultat après $i$ étapes de calcul de la machine de Turing sur le mot vide, et qu'il y a un unique domino de la forme $\mathrm{head}_\cdot^\cdot(\cdot,\cdot)$ (ou $\mathrm{init}$) sur la $i$-ème ligne, qu'il est à la position de la tête de lecture, et que sa couleur d'état est celle de la machine; on vient de montrer l'initialisation.
+
+  Soit maintenant $i\in\N$ tel que ce soit vrai. Notons $q$ l'état correspondant, $s$ le symbole sur lequel la tête est, et $j$ sa colonne. Le seul domino pouvant être placé au dessus est un domino de transition, correspondant à une transition de l'état $q$ pour la lettre $s$, donc $\mathcal M$ admet une telle transition $\delta=(q,s,\tilde q,\tilde s,D)$ (et si on était déjà sur la bordure ouest, $D$ ne peut être $\leftarrow$). De plus, la couleur du haut du domino en position $(j,i+1)$ est $\tilde q$. Par ailleurs, tout autre domino de la ligne $i+1$ doit avoir la couleur de fond de celui juste en dessous de lui. Ainsi, la $i+1$-ème ligne a les couleurs du résultat de $i+1$-étapes de calcul sur le mot vide. Par ailleurs, le domino à $D$ de $(j,i+1)$ doit être de la forme $\mathrm{head}_D^\cdot(\tilde q,\cdot)$. De plus, tout domino de la forme $\mathrm{head}_{D'}^\cdot(\cdot,\cdot)$ doit nécessairement être à $-D'$ d'un domino de transition de direction $D'$, qui doit lui-même être au dessus d'un domino de la forme $\mathrm{head}_{\cdot}^\cdot(\cdot,\cdot)$. On en déduit qu'il n'y a qu'un seul, le domino à $D$ de la position $(j, i+1)$. Cela conclut l'hérédité car il porte le bon état et est à la bonne position.
+
+  On en déduit en particulier que $\mathcal M$ ne termine pas sur le mot vide.
+
+  \
+
+  Supposons maintenant que $\mathcal M$ ne termine pas sur le mot vide. En adaptant le raisonnement qu'on vient d'effectuer, on construit un pavage de $\N^2$ avec $T_\mathcal M$ tel que $\mathrm{init}$ est en $(0,0)$: on écrit une bande vide sur la première ligne, avec la tête $\mathrm{init}$ en $(0,0)$, puis ensuite on complète ligne par ligne en copiant la ligne sur la ligne du dessus, sauf pour le domino au dessus du domino de tête, où on place le domino de la transition qu'on fait, et le domino vers lequel cette transition pointe, où l'on place le domino de tête de la bonne direction, et ayant comme état le nouvel état de la machine. Comme la machine ne termine pas sur le mot vide, on construit ainsi un pavage de $\N^2$.
+  
+  \ 
+
+  Ainsi, $T_\mathcal M$ pave $\N^2$ avec $\mathrm{init}$ en $(0,0)$ si, et seulement si, $\mathcal M$ ne termine pas sur le mot vide. On en déduit, comme le problème de l'arrêt est indécidable, que c'est aussi le cas du problème du problème du domino fixé.
+\end{preuve}
 
 \section{Pavage apériodique pour 11 tuiles et 4 couleurs}
 
