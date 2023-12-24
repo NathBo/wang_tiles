@@ -37,6 +37,7 @@
 \newtheorem{lemme}{Lemme}
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollaire}{Corollaire}
+\newtheorem{conjecture}{Conjecture}
 \newtheorem{remarque}{Remarque}
 \newtheorem{question}{Question}
 \theoremstyle{definition}
@@ -49,7 +50,7 @@
 \newtheorem{preuve}{Preuve}
 
 
-\title{Pavages périodiques apériodiques du plan}
+\title{Pavages périodiques, apériodiques du plan}
 \author{Matteo Wei et Nathan Boyer}
 
 \begin{document}
@@ -81,6 +82,9 @@ On dit que $\tau$ est périodique s'il existe un pavage du plan périodique par 
 
 On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ces pavages ne sont pas périodiques
 
+\begin{conjecture}[Wang, 1961]
+  Il n'existe pas d'ensemble de Wang apériodique.
+\end{conjecture}
     
 \end{definition}
 
@@ -90,8 +94,8 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 
 \subsection{Le problème du domino}
 
-\begin{definition}[Problème du domino]
-  Existe-t-il un algorithme qui, étant donné un ensemble fini de tuiles de Wang, décide s'il existe un pavage du plan avec ces tuiles?
+\begin{definition}[problème du domino]
+  Existe-t-il un algorithme qui, étant donné un ensemble fini de dominos de Wang, décide s'il existe un pavage du plan avec ces dominos?
 \end{definition}
 
 \begin{proposition}
@@ -100,16 +104,16 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 \end{proposition}
 
 \begin{lemme}[compacité]
-  Soit $T$ un ensemble fini de tuiles de Wang. Alors $T$ pave le plan si, et seulement si, pour tout $n\in\N$, $T$ pave un carré de taille $n\times n$.
+  Soit $T$ un ensemble fini de dominos de Wang. Alors $T$ pave le plan si, et seulement si, pour tout $n\in\N$, $T$ pave un carré de taille $n\times n$.
   \thlabel{lem:comp}
 \end{lemme}
 
 \begin{preuve}[\thref{lem:comp}]
   Le sens direct est trivial. Pour le sens réciproque, supposons que pour tout $n\in\N$, $T$ pave un carré de taille $n\times n$.
 
-  On fixe un ensemble dénombrable de variables $V$ et considère le langage contenant un symbole de constante $O$, deux symboles de relations binaires $\mathcal H$ et $\mathcal V$, ainsi que, pour chaque tuile $t\in T$, un symbole de relation unaire aussi noté $t$.
+  On fixe un ensemble dénombrable de variables $V$ et considère le langage contenant un symbole de constante $O$, deux symboles de relations binaires $\mathcal H$ et $\mathcal V$, ainsi que, pour chaque domino $t\in T$, un symbole de relation unaire aussi noté $t$.
   
-  On note $T_{\mathcal H}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur de droite de $t$ est la couleur de gauche de $u$. De même, on note $T_{\mathcal V}$ l'ensemble des couples de tuiles $(t,u)\in T^2$ tels que la couleur du haut de $t$ est la couleur du bas de $u$.
+  On note $T_{\mathcal H}$ l'ensemble des couples de dominos $(t,u)\in T^2$ tels que la couleur de droite de $t$ est la couleur de gauche de $u$. De même, on note $T_{\mathcal V}$ l'ensemble des couples de dominos $(t,u)\in T^2$ tels que la couleur du haut de $t$ est la couleur du bas de $u$.
 
   On propose l'axiomatisation $\mathrm{Th}$ du premier ordre suivante pour les $T$-pavages:
   \begin{align}
@@ -125,7 +129,7 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
     \forall y \Bigl( x\V y \rightarrow \bigvee_{(t,u)\in T_{\mathcal V}}(t(x)\land u(y))\Bigr)
   \end{align}
 
-  Les variables s'incarnent en des positions sur lesquelles les tuiles sont placées. Les formules $\varphi_\cdot$ axiomatisent le réseau entier du plan, et les formules $\psi_\cdot$ correspondent au placement des tuiles sur les cases.
+  Les variables s'incarnent en des positions sur lesquelles les dominos sont placées. Les formules $\varphi_\cdot$ axiomatisent le réseau entier du plan, et les formules $\psi_\cdot$ correspondent au placement des dominos sur les cases.
 
   Soit $n\in\N$. Considérons
   \begin{align}
@@ -138,15 +142,15 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 
   Soit $n\in\N$. Remarquons que $\varphi_\mathcal H$ et $\varphi_\mathcal V$ impliquent que pour $n\in\N$ il n'y a qu'un seul $(a_{i,j}^n)_{-n\le i,j\le n}\in M^{(2n+1)^2}$ tel que $\mathfrak M\vdash \theta_n\left((a_{i,j})_{-n\le i,j\le n}\in M^{(2n+1)^2}\right)$, et de plus que pour $m\ge n$, et $-n\le i,j\le n$, on a $a_{i,j}^n=a_{i,j}^m$. Il s'agit en effet de l'unique position $i$ lignes au dessus et $j$ colonnes à droite de $O^\mathfrak M$; on note donc $a_{i,j}$ cet élément.
 
-  On en déduit également que pour tout $(i,j)\in\Z^2$, $\mathfrak M\vdash a_{i,j}\H a_{i,j+1}\land a_{i,j}\V a_{i+1,j}$. On déduit alors des trois derniers axiomes de $\mathrm{Th}$ que placer à la position $(i,j)\in\Z^2$ l'unique tuile $t$ telle que $\mathfrak M\vdash t(a_{i,j})$ donne un $T$-pavage du plan, ce qui conclut. 
+  On en déduit également que pour tout $(i,j)\in\Z^2$, $\mathfrak M\vdash a_{i,j}\H a_{i,j+1}\land a_{i,j}\V a_{i+1,j}$. On déduit alors des trois derniers axiomes de $\mathrm{Th}$ que placer à la position $(i,j)\in\Z^2$ l'unique domino $t$ telle que $\mathfrak M\vdash t(a_{i,j})$ donne un $T$-pavage du plan, ce qui conclut. 
 \end{preuve}
 
 \begin{preuve}[\thref{prop:Wang->domino}]
   Supposons que la conjecture de Wang est vrai.
   
-  Considérons l'algorithme, étant donné un ensemble fini $T$ de tuiles de Wang, consistant à tester, pour chaque $n\in\N$, tous les $T$-coloriages possibles de $[\![0,n]\!]^2$, jusqu'à soit trouver un $T$-pavage prolongeable en $T$-pavage périodique du plan, auquel cas on accepte, soit trouver un $n$ tel qu'aucun des $T$-coloriages de $[\![0,n]\!]^2$ n'est un $T$-pavage, auquel cas on rejette.
+  Considérons l'algorithme, étant donné un ensemble fini $T$ de dominos de Wang, consistant à tester, pour chaque $n\in\N$, tous les $T$-coloriages possibles de $[\![0,n]\!]^2$, jusqu'à soit trouver un $T$-pavage prolongeable en $T$-pavage périodique du plan, auquel cas on accepte, soit trouver un $n$ tel qu'aucun des $T$-coloriages de $[\![0,n]\!]^2$ n'est un $T$-pavage, auquel cas on rejette.
 
-  Soit $T$ un ensemble fini de tuiles. Il y a deux cas de figures possibles:
+  Soit $T$ un ensemble fini de dominos. Il y a deux cas de figures possibles:
   \begin{itemize}
     \item Soit $T$ ne pave pas le plan, auquel cas le \thref{lem:comp} assure que l'algorithme rejette.
     \item Soit $T$ pave le plan, auquel cas la conjecture de Wang assure qu'il existe un $T$-pavage périodique, et l'algorithme accepte.
@@ -158,13 +162,13 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 \subsection{Indécidabilité du problème du domino fixé}
 
 \begin{definition}[problème du domino fixé]
-  Existe-t-il un algorithme qui, étant donné un ensemble fini non vide $T$ de tuiles de Wang et $t\in T$ décide s'il existe un pavage du quart de plan $\N^2$ avec la tuile $t$ en $(0,0)$?
+  Existe-t-il un algorithme qui, étant donné un ensemble fini non vide $T$ de dominos de Wang et $t\in T$ décide s'il existe un pavage du quart de plan $\N^2$ avec la domino $t$ en $(0,0)$?
 \end{definition}
 
 Par une preuve similaire à celle du \thref{lem:comp}, on montre:
 
 \begin{lemme}[compacité]
-  Soit $T$ un ensemble non vide de tuiles de Wang, et $t\in T$. Alors il existe un $T$-pavage de $\N^2$ avec $t$ en $(0,0)$ si, et seulement si, pour tout $n\in\N$ il existe un $T$-pavage de $[\![0,n]\!]^2$ avec $t$ en $(0,0)$.
+  Soit $T$ un ensemble non vide de dominos de Wang, et $t\in T$. Alors il existe un $T$-pavage de $\N^2$ avec $t$ en $(0,0)$ si, et seulement si, pour tout $n\in\N$ il existe un $T$-pavage de $[\![0,n]\!]^2$ avec $t$ en $(0,0)$.
   \thlabel{lem:comp2}
 \end{lemme}
 
@@ -176,7 +180,7 @@ Par une preuve similaire à celle du \thref{lem:comp}, on montre:
 Un calcul d'une machine de Turing peut naturellement être représenté dans le plan, et on peut facilement en déduire une manière d'encoder une machine de Turing par un ensemble de Wang. 
 
 \begin{definition}
-  Soit $\mathcal M=(Q,\Sigma,\Gamma,\Delta,q_{\mathrm{init}})$ une machine de Turing. On définit un ensemble de dominos de Wang $T_\mathcal M$, comme dans la figure \ref{fig:tiles}.
+  Soit $\mathcal M=(Q,\Sigma,\Gamma,\Delta,q_{\mathrm{init}}, q_{\mathrm{acc}})$ une machine de Turing (non déterministe). On définit un ensemble de dominos de Wang $T_\mathcal M$, comme dans la figure \ref{fig:tiles}.
 \end{definition}
 
 \begin{figure}
@@ -252,7 +256,7 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
 
   On prouve maintenant par récurrence sur $i\in\N$ que lire les couleurs de fond des côtés hauts des domino de la $i$-ème ligne donne le résultat après $i$ étapes de calcul de la machine de Turing sur le mot vide, et qu'il y a un unique domino de la forme $\mathrm{head}_\cdot^\cdot(\cdot,\cdot)$ (ou $\mathrm{init}$) sur la $i$-ème ligne, qu'il est à la position de la tête de lecture, et que sa couleur d'état est celle de la machine; on vient de montrer l'initialisation.
 
-  Soit maintenant $i\in\N$ tel que ce soit vrai. Notons $q$ l'état correspondant, $s$ le symbole sur lequel la tête est, et $j$ sa colonne. Le seul domino pouvant être placé au dessus est un domino de transition, correspondant à une transition de l'état $q$ pour la lettre $s$, donc $\mathcal M$ admet une telle transition $\delta=(q,s,\tilde q,\tilde s,D)$ (et si on était déjà sur la bordure ouest, $D$ ne peut être $\leftarrow$). De plus, la couleur du haut du domino en position $(j,i+1)$ est $\tilde q$. Par ailleurs, tout autre domino de la ligne $i+1$ doit avoir la couleur de fond de celui juste en dessous de lui. Ainsi, la $i+1$-ème ligne a les couleurs du résultat de $i+1$-étapes de calcul sur le mot vide. Par ailleurs, le domino à $D$ de $(j,i+1)$ doit être de la forme $\mathrm{head}_D^\cdot(\tilde q,\cdot)$. De plus, tout domino de la forme $\mathrm{head}_{D'}^\cdot(\cdot,\cdot)$ doit nécessairement être à $-D'$ d'un domino de transition de direction $D'$, qui doit lui-même être au dessus d'un domino de la forme $\mathrm{head}_{\cdot}^\cdot(\cdot,\cdot)$. On en déduit qu'il n'y a qu'un seul, le domino à $D$ de la position $(j, i+1)$. Cela conclut l'hérédité car il porte le bon état et est à la bonne position.
+  Soit maintenant $i\in\N$ tel que ce soit vrai. Notons $q$ l'état correspondant, $s$ le symbole sur lequel la tête est, et $j$ sa colonne. Le seul domino pouvant être placé au dessus est un domino de transition, correspondant à une transition de l'état $q$ pour la lettre $s$, donc $\mathcal M$ admet une telle transition $\delta=(q,s,\tilde q,\tilde s,D)$ (et si on était déjà sur la bordure ouest, $D$ ne peut être $\leftarrow$). De plus, la couleur du haut du domino en position $(j,i+1)$ est $\tilde q$. Par ailleurs, tout autre domino de la ligne $i+1$ doit avoir la couleur de fond de celui juste en dessous de lui. Ainsi, la $i+1$-ème ligne a les couleurs du résultat de $i+1$-étapes de calcul sur le mot vide. Par ailleurs, le domino à $D$ de $(j,i+1)$ doit être de la forme $\mathrm{head}_D^\cdot(\tilde q,\cdot)$. De plus, tout domino de la forme $\mathrm{head}_{D'}^\cdot(\cdot,\cdot)$ doit nécessairement être à $-D'$ d'un domino de transition de direction $D'$, qui doit lui-même être au dessus d'un domino de la forme $\mathrm{head}_{\cdot}^\cdot(\cdot,\cdot)$. On en déduit qu'il n'y en a qu'un seul, le domino à $D$ de la position $(j, i+1)$. Cela conclut l'hérédité car il porte le bon état et est à la bonne position.
 
   On en déduit en particulier que $\mathcal M$ ne termine pas sur le mot vide.
 
@@ -263,6 +267,139 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
   \ 
 
   Ainsi, $T_\mathcal M$ pave $\N^2$ avec $\mathrm{init}$ en $(0,0)$ si, et seulement si, $\mathcal M$ ne termine pas sur le mot vide. On en déduit, comme le problème de l'arrêt est indécidable, que c'est aussi le cas du problème du problème du domino fixé.
+\end{preuve}
+
+\subsection{Vers le problème du domino}
+
+\begin{proposition}
+  Le problème du domino est indécidable.
+\end{proposition}
+
+\begin{preuve}
+  On essaie de se ramener au problème du domino fixé. Pour cela, on essaie de trouver un ensemble de Wang dont tous les pavages délimitent des carrés vides de taille arbitrairement grande.
+  
+  Une fois qu'on a un tel ensemble $T_s$, étant donné un ensemble de Wang $T$, et un domino $t\in T$, on construit un nouvel ensemble de Wang $T'$ à partir de $T_s$ et $T$: on prend les dominos de $T_s$ et on rajoute sur une couche les dominos de $T$, de telle sorte à ce que les carrés soient pavés avec les dominos de $T$, avec $t$ au sud-ouest de chaque grand carré. Alors on peut paver le plan avec $T'$ si, et seulement si, on peut paver des carrés de taille arbitrairement grande avec $t$ à leur coin sud-ouest. Par le \thref{lem:comp2}, on en déduit que $T'$ pavee le plan si, et seulement si, $T$ pave $\N^2$ avec $t$ en $(0,0)$.
+
+  Comme le problème du domino fixé est indécidable, on en déduit que le problème du domino l'est aussi.
+
+  \
+
+  La construction d'un ensemble de Wang tel que $T_s$ peut être faite à l'aide de \emph{substitutions}. On construit un ensemble de dominos $T_s$ tel qu'il existe une substitution, \emph{i.e.} une fonction $\varphi:T_s\to T_s^{\{0,1\}^2}$ tel que (l'extension naturelle aux $T_s$-coloriages du plan de) $\varphi$ préserve le fait d'être un pavage, et tel que tout $T_s$-pavage de $\Z^2$ est (à translation près) la $\varphi$-image d'un autre $T_s$-pavage.
+  
+  Si en plus $T_s$ fait vivre des carrés, et que $\varphi$ les fait doubler de taille, on en déduit facilement que $T_s$ vérifie les propriétés qu'on veut.
+
+  \
+
+  La construction de tels ensembles de Wang est décrite dans (placeholder et placeholder). Comme les ensembles construits ont beaucoup de dominos ($104$ dans les deux cas), les constructions ne seront pas précisées ici.
+\end{preuve}
+
+\subsection{Complétude pour plusieurs classes de complexité de problèmes de pavages}
+
+L'idée générale est d'utiliser le codage des machines de Turing en pavage pour ramener une instance d'un problème donné à une instance d'un problème de pavage.  
+
+\begin{definition}[problèmes $\mathrm{TILING}$]
+  Soit $h:\N\to\N$ et $w:\N\to\N$ tel que $w\ge\id_\N$. Le problème de décision $\mathrm{TILING}(h,w)$, consiste, étant donné un ensemble de Wang $T$, quatre couleurs $N$, $S$, $E$ et $W$, et une suite de couleurs de longueur $n$, consiste à décider s'il existe un $T$-pavage d'un carré de taille $w(n)\times h(n)$ avec les contraintes supplémentaires que les bords nord, est et ouest soient des couleurs correspondantes et que le côté sud commence par la suite de couleurs donnée, puis continue avec la couleur $S$.
+
+  On note $\mathrm{TILING}(*,w)$, le même problème, où l'on enlève les contraintes de hauteur.
+\end{definition}
+
+\begin{definition}
+  Soit $\mathcal M=(Q,\Sigma,\Gamma, \Delta, q_\mathrm{init}, q_\mathrm{acc})$ une machine de Turing. On construit un ensemble de Wang $T^{\mathrm{born}}_\mathcal M$ comme dans la figure \ref{fig:tiles2}.
+\end{definition}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale = 0.8]
+    \foreach \x in {1, 2, 3, 4, 5, 6}
+    \fill [fill = BrickRed] (3*\x,-6) rectangle (3*\x+2,-4);
+    \fill [fill = Red] (6, -6) -- (7, -5) -- (8, -6) -- cycle;
+    \fill [fill = Red] (9, -6) -- (10, -5) -- (11, -6) -- cycle;
+    \foreach \x in {1, 6}
+    \fill [fill = BrickRed] (3*\x,-3) rectangle (3*\x+2,-1);
+    \foreach \x in {1, 2, 3, 4, 5, 6}
+    {\fill [fill = White] (3*\x,-6) rectangle (3*\x+1/4,-4);
+    \fill [fill = White] (3*\x+2-1/4, -6) rectangle (3*\x+2, -4);}
+    \fill [fill = RoyalBlue] (7-1/8, -6) -- (7-1/8, -5+1/8) -- (7+1/8, -5-1/8) -- (7+1/8, -6) --cycle;
+    \fill [fill = Blue] (8, -5+1/8) -- (7-1/8, -5+1/8) -- (7+1/8, -5-1/8) -- (8, -5-1/8) --cycle;
+    \fill [fill = RoyalBlue] (10+1/8, -6) -- (10+1/8, -5+1/8) -- (10-1/8, -5-1/8) -- (10-1/8, -6) --cycle;
+    \fill [fill = Blue] (9, -5+1/8) -- (10+1/8, -5+1/8) -- (10-1/8, -5-1/8) -- (9, -5-1/8) --cycle;
+    \fill [fill = Black] (9+1/4, -6+1/2-1/8) rectangle (9, -6+1/2+1/8);
+    \fill [fill = Black] (14, -6+1/2+1/8) -- (14-1/4, -6+1/2) -- (14, -6+1/2-1/8) -- cycle;
+    \fill [fill = Black] (9+1/4, -6+1/2-1/8) rectangle (9, -6+1/2+1/8);
+    \fill [fill = Black] (15, -6+3/2+1/8) -- (15+1/4, -6+3/2) -- (15, -6+3/2-1/8) -- cycle;
+    \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (13+1/8, -6+2);
+    \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (14, -6+1+1/8);
+    \fill [fill = Blue] (13, -6+1) circle (8 pt);
+    \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (13+1/8, -6+2);
+    \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (14, -6+1+1/8);
+    \fill [fill = Blue] (13, -6+1) circle (8 pt);
+    \fill [fill = Blue] (16-1/8, -6+1-1/8) rectangle (16+1/8, -6+2);
+    \fill [fill = Blue] (16+1/8, -6+1-1/8) rectangle (15, -6+1+1/8);
+    \fill [fill = Blue] (16, -6+1) circle (8 pt);
+    \foreach \x in {1, 6}
+    {\fill [fill = White] (3*\x,-3) rectangle (3*\x+1/4,-1);
+    \fill [fill = White] (3*\x+2-1/4, -3) rectangle (3*\x+2, -1);
+    \fill [fill = Gray] (3*\x, -1) -- (3*\x+1/4, -1-1/4) -- (3*\x+2-1/4, -1-1/4) -- (3*\x+2, -1) -- cycle;
+    \draw (3*\x,-3) rectangle (3*\x+2,-1);}
+    \foreach \y in {-1, -2}
+    {\fill [fill = Black] (19-1/8, 3*\y) rectangle (19+1/8, 3*\y+1);
+    \fill [fill = Black] (19, 3*\y+1) circle (8 pt);}
+    \foreach \x in {1, 2, 3, 4, 5, 6}
+    \draw (3*\x,-6) rectangle (3*\x+2,-4);
+    \node at (19, -6.5) {$\mathrm{acc}(s)$};
+    \node at (4, -6.5) {${\mathrm{let}}(s)$};
+    \node at (19, -3.5) {$\mathrm{acc}^\mathrm N(s)$};
+    \node at (4, -3.5) {${\mathrm{let}}^\mathrm N(s)$};
+    \node at (7, -6.5) {$\mathrm{trans}_\rightarrow(\delta_\rightarrow)$};
+    \node at (13, -6.5) {$\mathrm{head}_\leftarrow(q,s)$};
+    \node at (10, -6.5) {$\mathrm{trans}_\leftarrow(\delta_\leftarrow)$};
+    \node at (16, -6.5) {$\mathrm{head}_\rightarrow(q,s)$};
+  \end{tikzpicture}
+  \caption{Les dominos de $T_{\mathcal M}^{\mathrm{born}}$. L'état noir est l'état acceptant $q_{\mathrm{acc}}$. \\ La bande grise marque le côté nord, et le blanc est le même que celui du caractère spécial $\_$.}
+  \label{fig:tiles2}
+\end{figure}
+
+La possibilité de traduire des résultats des calculs de machine de Turing assure que les problèmes de pavages capturent de nombreuses classes de complexité au dessus de $P$.
+
+\begin{proposition}
+  Soit $k\in\N$. $\mathrm{TILING}(\exp_k,\exp_k)$ est $k\mathrm{NEXPTIME}$-complet (pour des réductions polynomiales).
+  \thlabel{prop:Nexp}
+\end{proposition}
+
+\begin{preuve}[\thref{prop:Nexp}]
+  Soit $T$ un ensemble de Wang. Étant donné une suite de couleur de longueur $n$, on décide de manière non-déterministe s'il existe un $T$-pavage suivant les conditions coulus d'un carré de taille $\exp_k(n)$ en en devinant un. Ainsi, $\mathrm{TILING}(\exp_k,\exp_k)$ est dans $k\mathrm{NEXPTIME}$.
+
+  \
+
+  Soit maintenant $P$ un problème de décision de $k\mathrm{NEXPTIME}$. On peut trouver une machine de Turing (non déterministe) $\mathcal M$ décidant $P$, en au plus $exp_k(f(n))$ pour une entrée de taille $n$, où $f$ est un certain polynôme.
+
+  Considérons $T^\mathrm{born}_{\mathcal M}$, où les couleurs $S$, $E$ et $W$ sont blanc et $N$ est gris. Remarquons que, $\mathcal M$ accepte un mot $w$ si, et seulement si, $T^\mathrm{born}_\mathcal M$ pave un carré de taille assez grande pour faire tenir tous les calculs, en imposant en plus que la couleur à l'extrémité ouest du bord sud soit $w_0$, avec un marqueur de tête à l'état $q_\mathrm{init}$ dessus, suivie dans l'ordre des couleurs $w_i$, puis de blancs.
+
+  C'est en particulier le cas pour le carré de taille $\exp_k(f(|w|))$, pour la suite de couleur imposée de longueur $f(|w|)$ obtenue en concaténant celle qu'on vient d'évoquer avec $f(|w|)-|w|$ blancs.
+
+  Ainsi, on sait réduire toute instance de $P$ en une instance de $\mathrm{TILING}(\exp_k,\exp_k)$ de taille $f(|w|)$, ce qui prouve que le problème est $k\mathrm{NEXPTIME}$-compliqué, et conclut.
+\end{preuve}
+
+\begin{proposition}
+  Soit $k\in\N$. $\mathrm{TILING}(*,\exp_k)$ est $k\mathrm{EXPSPACE}$-complet (pour des réductions polynomiales).
+  \thlabel{prop:expsp}
+\end{proposition}
+
+\begin{preuve}[\thref{prop:expsp}]
+  Soit $T$ un ensemble de Wang. Étant donné une suite de couleur de longueur $n$, on décide de manière non-déterministe s'il existe un $T$-pavage d'un rectangle de largeur $exp_k(n)$ vérifiant les conditions imposées en en devinant un ligne par ligne; on remarque qu'il n'est nécessaire de garder en mémoire que la dernière ligne construite, et de remplacer les dominos un par un quand on construit la suivante (les conditions sur le pavage sont locales). Ainsi, $\mathrm{TILING}(*,\exp_k)$ est dans $k\mathrm{EXPSPACE}$.
+
+  \
+
+  La réduction pour l'autre sens est la même qu'avant.
+\end{preuve}
+
+\begin{corollaire}[\thref{prop:Nexp} et \thref{prop:expsp}]
+  En particulier, $\mathrm{TILING}(\id_\N,\id_\N)$ est $\mathrm{NP}$-complet, et $\mathrm{TILING}(*,\id_\N)$ est $\mathrm{PSPACE}$-complet. 
+  \thlabel{cor:P}
+\end{corollaire}
+
+\begin{preuve}[\thref{cor:P}]
+  Il s'agit du cas $k=0$ de respectivement la \thref{prop:Nexp} et la \thref{prop:expsp}.
 \end{preuve}
 
 \section{Pavage apériodique pour 11 tuiles et 4 couleurs}
