@@ -47,7 +47,7 @@
 \newtheorem{exercice}{Exercice}
 \theoremstyle{remark}
 \newtheorem{lemma}[theoreme]{Lemma}
-\newtheorem{preuve}{Preuve}
+\newtheorem*{preuve}{Preuve}
 
 
 \title{Pavages périodiques, apériodiques du plan}
@@ -61,26 +61,25 @@
 
 \begin{definition}[Ensemble de Wang]
     
-Un ensembles de Wang est un triplet (H,V,T) où H et V sont respectivement les couleurs horizontales et verticales
-et où $T \sube H^2 * V^2$ est l'ensemble des dominos
+Un \emph{ensemble de Wang} est un triplet $(H,V,T)$ où $H$ et $V$ sont respectivement les couleurs horizontales et verticales
+et où $T \sube H^2 * V^2$ est l'ensemble des dominos. On appelera parfois aussi abusivement ensemble de Wang l'ensemble des dominos $T$.
 
 \end{definition}
 
 \begin{definition}[Pavage]
 
-Soit $X \sube \Z^2$ et $\tau$ un ensemble de Wang
+Soit $X \sube \Z^2$ et $\tau$ un ensemble de Wang.
 
 Un pavage de X par $\tau$ est une fonction $f:X \to T$ avec:
 
-$\forall (x,y) \in X, {f(x,y)}_e = {f(x+1,y)}_w et {f(x,y)}_n = {f(x,y+1)}_s$
+\[\forall (x,y) \in X, {f(x,y)}_e = {f(x+1,y)}_w \land {f(x,y)}_n = {f(x,y+1)}_s.\]
 
-Un pavage du plan par $\tau$ est un pavage de $\Z^2$
+Un pavage du plan par $\tau$ est un pavage de $\Z^2$.
 
 On dit que $\tau$ est périodique s'il existe un pavage du plan périodique par $\tau$
+(càd que $\exists (x,y) \in \Z^2 \setminus \{(0,0)\}, \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y+v)$).
 
-(càd que $\exists (x,y) \in Z^2 \setminus (0,0), \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y+v)$)
-
-On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ces pavages ne sont pas périodiques
+On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ses pavages ne sont pas périodiques.
 
 \begin{conjecture}[Wang, 1961]
   Il n'existe pas d'ensemble de Wang apériodique.
@@ -273,9 +272,10 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
 
 \begin{proposition}
   Le problème du domino est indécidable.
+  \thlabel{prop:domind}
 \end{proposition}
 
-\begin{preuve}
+\begin{preuve}[\thref{prop:domind}]
   On essaie de se ramener au problème du domino fixé. Pour cela, on essaie de trouver un ensemble de Wang dont tous les pavages délimitent des carrés vides de taille arbitrairement grande.
   
   Une fois qu'on a un tel ensemble $T_s$, étant donné un ensemble de Wang $T$, et un domino $t\in T$, on construit un nouvel ensemble de Wang $T'$ à partir de $T_s$ et $T$: on prend les dominos de $T_s$ et on rajoute sur une couche les dominos de $T$, de telle sorte à ce que les carrés soient pavés avec les dominos de $T$, avec $t$ au sud-ouest de chaque grand carré. Alors on peut paver le plan avec $T'$ si, et seulement si, on peut paver des carrés de taille arbitrairement grande avec $t$ à leur coin sud-ouest. Par le \thref{lem:comp2}, on en déduit que $T'$ pavee le plan si, et seulement si, $T$ pave $\N^2$ avec $t$ en $(0,0)$.
@@ -290,7 +290,7 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
 
   \
 
-  La construction de tels ensembles de Wang est décrite dans (placeholder et placeholder). Comme les ensembles construits ont beaucoup de dominos ($104$ dans les deux cas), les constructions ne seront pas précisées ici.
+  La construction de tels ensembles de Wang est décrite dans \cite{shifts} et \cite{dom_prob}. Comme les ensembles construits ont beaucoup de dominos ($104$ dans les deux cas), les constructions ne seront pas précisées ici.
 \end{preuve}
 
 \subsection{Complétude pour plusieurs classes de complexité de problèmes de pavages}
@@ -540,12 +540,26 @@ On rajoute cependant une petite optimisation, qui est d'enlever les puits et sou
 
 A l'exception d'un cas, tous les cas furent résolus par l'ordinateur, et ainsi le résultat recherché fut prouvé.
 
+<<<<<<< HEAD
+\begin{thebibliography}{9}
+=======
 \subsection{Un contre-exemple pour 11 tuiles}
+>>>>>>> 5ecdcf6aed3398eac27ace8721186e8b9e837519
 
+<<<<<<< HEAD
+  \bibitem{shifts} N. Ollinger. \emph{Two-by-two Substitution Systems and the Undecidability of the Domino Problem}. 2008. hal-00204625v1.
+  
+  \bibitem{dom_prob} E. Jeandel \& P. Vannier. The Undecidability of the Domino Problem, \emph{in} \emph{Substitution and Tiling Dynamics: Introduction to Self-inducing Structures}, LNM volume 2273. Springer, 2020
+
+  \bibitem{compl} F. Schwarzentruber. \emph{The Complexity of Tiling Problems}. 2019. arXiv:1907.00102v2.
+\end{thebibliography}
+
+=======
 En appliquant le même algorithme pour 11 tuiles, on peut regarder les cas indécidés par l'ordinateur et les étudier.
 
 Un cas en particulier a alors été exhibé et démontré comme apériodique, prouvant qu'il existe des ensembles de Wang
 apériodiques à 11 dominos
 
 
+>>>>>>> 5ecdcf6aed3398eac27ace8721186e8b9e837519
 \end{document}
