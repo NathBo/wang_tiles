@@ -41,7 +41,7 @@
 \newtheorem{remarque}{Remarque}
 \newtheorem{question}{Question}
 \theoremstyle{definition}
-\newtheorem{definition}{Définition}
+\newtheorem*{definition}{Définition}
 \newtheorem{exemples}{Exemples}
 \newtheorem{exemple}{Exemple}
 \newtheorem{exercice}{Exercice}
@@ -77,7 +77,7 @@ Un pavage de X par $\tau$ est une fonction $f:X \to T$ avec:
 Un pavage du plan par $\tau$ est un pavage de $\Z^2$.
 
 On dit que $\tau$ est périodique s'il existe un pavage du plan périodique par $\tau$
-(càd que $\exists (x,y) \in \Z^2 \setminus \{(0,0)\}, \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y+v)$).
+(càd que $\exists (u,v) \in {\Z^*}^2, \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y)=f(x,y+v)$).
 
 On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ses pavages ne sont pas périodiques.
 
@@ -139,7 +139,7 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 
   L'hypothèse que $T$ pave des carrés de taille arbitrairement grande donne en particulier que pour tout $n\in\N$, $\mathrm{Th}\cup \{\theta'_n\}$ admet un modèle (il suffit de prendre un pavage d'un carré $C_n$ de taille $2n+1\times 2n+1$ et de prendre pour $O^{C_n}$ le centre du carré). On en déduit que $\displaystyle\mathrm{Th}\cup \set{\theta'_n|n\in\N}$ est finiment consistante, donc consistante par compacité de la logique du premier ordre. Fixons-en donc un modèle $\mathfrak M$, dont on note $M$ l'ensemble sous-jacent.
 
-  Soit $n\in\N$. Remarquons que $\varphi_\mathcal H$ et $\varphi_\mathcal V$ impliquent que pour $n\in\N$ il n'y a qu'un seul $(a_{i,j}^n)_{-n\le i,j\le n}\in M^{(2n+1)^2}$ tel que $\mathfrak M\vdash \theta_n\left((a_{i,j})_{-n\le i,j\le n}\in M^{(2n+1)^2}\right)$, et de plus que pour $m\ge n$, et $-n\le i,j\le n$, on a $a_{i,j}^n=a_{i,j}^m$. Il s'agit en effet de l'unique position $i$ lignes au dessus et $j$ colonnes à droite de $O^\mathfrak M$; on note donc $a_{i,j}$ cet élément.
+  Soit $n\in\N$. Remarquons que $\varphi_\mathcal H$ et $\varphi_\mathcal V$ impliquent que pour $n\in\N$ il n'y a qu'un seul $(a_{i,j}^n)_{-n\le i,j\le n}\in M^{(2n+1)^2}$ tel que $\mathfrak M\vdash \theta_n\left((a_{i,j})_{-n\le i,j\le n}\right)$, et de plus que pour $m\ge n$, et $-n\le i,j\le n$, on a $a_{i,j}^n=a_{i,j}^m$. Il s'agit en effet de l'unique position $i$ lignes au dessus et $j$ colonnes à droite de $O^\mathfrak M$; on note donc $a_{i,j}$ cet élément.
 
   On en déduit également que pour tout $(i,j)\in\Z^2$, $\mathfrak M\vdash a_{i,j}\H a_{i,j+1}\land a_{i,j}\V a_{i+1,j}$. On déduit alors des trois derniers axiomes de $\mathrm{Th}$ que placer à la position $(i,j)\in\Z^2$ l'unique domino $t$ telle que $\mathfrak M\vdash t(a_{i,j})$ donne un $T$-pavage du plan, ce qui conclut. 
 \end{preuve}
@@ -284,7 +284,7 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
 
   \
 
-  La construction d'un ensemble de Wang tel que $T_s$ peut être faite à l'aide de \emph{substitutions}. On construit un ensemble de dominos $T_s$ tel qu'il existe une substitution, \emph{i.e.} une fonction $\varphi:T_s\to T_s^{\{0,1\}^2}$ tel que (l'extension naturelle aux $T_s$-coloriages du plan de) $\varphi$ préserve le fait d'être un pavage, et tel que tout $T_s$-pavage de $\Z^2$ est (à translation près) la $\varphi$-image d'un autre $T_s$-pavage.
+  La construction d'un ensemble de Wang tel que $T_s$ peut être faite à l'aide de \emph{substitutions}. On construit un ensemble de dominos $T_s$ tel qu'il existe une substitution, \emph{i.e.} une fonction $\varphi:T_s\to T_s^{\{0,1\}^2}$ telle que (l'extension naturelle aux $T_s$-coloriages du plan de) $\varphi$ préserve le fait d'être un pavage, et tel que tout $T_s$-pavage de $\Z^2$ est (à translation près) la $\varphi$-image d'un autre $T_s$-pavage.
   
   Si en plus $T_s$ fait vivre des carrés, et que $\varphi$ les fait doubler de taille, on en déduit facilement que $T_s$ vérifie les propriétés qu'on veut.
 
@@ -298,7 +298,7 @@ Un calcul d'une machine de Turing peut naturellement être représenté dans le 
 L'idée générale est d'utiliser le codage des machines de Turing en pavage pour ramener une instance d'un problème donné à une instance d'un problème de pavage.  
 
 \begin{definition}[problèmes $\mathrm{TILING}$]
-  Soit $h:\N\to\N$ et $w:\N\to\N$ tel que $w\ge\id_\N$. Le problème de décision $\mathrm{TILING}(h,w)$, consiste, étant donné un ensemble de Wang $T$, quatre couleurs $N$, $S$, $E$ et $W$, et une suite de couleurs de longueur $n$, consiste à décider s'il existe un $T$-pavage d'un carré de taille $w(n)\times h(n)$ avec les contraintes supplémentaires que les bords nord, est et ouest soient des couleurs correspondantes et que le côté sud commence par la suite de couleurs donnée, puis continue avec la couleur $S$.
+  Soit $h:\N\to\N$ et $w:\N\to\N$ tel que $w\ge\id_\N$. Le problème de décision $\mathrm{TILING}(h,w)$, consiste, étant donné un ensemble de Wang $T$, quatre couleurs $N$, $S$, $E$ et $W$, et une suite de couleurs de longueur $n$, consiste à décider s'il existe un $T$-pavage d'un carré de taille $w(n)\times h(n)$ avec les contraintes supplémentaires que les bords nord, est et ouest soient des couleurs correspondantes et que le bord sud commence par la suite de couleurs donnée, puis continue avec la couleur $S$.
 
   On note $\mathrm{TILING}(*,w)$, le même problème, où l'on enlève les contraintes de hauteur.
 \end{definition}
@@ -399,113 +399,113 @@ La possibilité de traduire des résultats des calculs de machine de Turing assu
 \end{corollaire}
 
 \begin{preuve}[\thref{cor:P}]
-  Il s'agit du cas $k=0$ de respectivement la \thref{prop:Nexp} et la \thref{prop:expsp}.
+  Il s'agit du cas $k=0$ de la \thref{prop:Nexp} et de la \thref{prop:expsp} respectivement.
 \end{preuve}
 
 \section{Existence d'un ensemble de Wang apériodique de 11 tuiles}
 
 On cherche à montrer dans cette partie qu'il n'existe pas d'ensemble de Wang apériodique à 11 dominos ou moins
-mais qu'il en existe à partir de 11 dominos
+mais qu'il en existe à partir de 11 dominos.
 
 \subsection{Définitions préalables}
 
 \begin{definition}[Transducteur]
     
-Un transducteur $\tau$ est un automate qui lit une bande d'entrée bifinie et écrit sur une bande de sortie bifinie
+Un transducteur $\tau$ est un automate qui lit une bande d'entrée bifinie et écrit sur une bande de sortie bifinie.
 
 \end{definition}
 
 On peut voir un pavage comme un transducteur.
 
-En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'état w vers l'état e qui lit n et écrit s
+En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'état $w$ vers l'état $e$ qui lit $n$ et écrit $s$.
 
 \begin{definition}[$w \tau w'$]
     
-On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur $\tau$
+On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur $\tau$.
 
 
 \end{definition}
 
 \begin{definition}[Run]
     
-Une run d'un transducteur $\tau$ sur I un intervalle de $\Z$ est une suite de mots bifinis ${(w_i)}_{i \in I}$
-telle que $\forall i \in I, w_i \tau w_{i+1}$
+Une run d'un transducteur $\tau$ sur $I$ un intervalle de $\Z$ est une suite de mots bifinis ${(w_i)}_{i \in I}$
+telle que $\forall i \in I, w_i \tau w_{i+1}$.
 
 \end{definition}
 
-On définit également la composition de 2 transducteurs de manière naturelle
+On définit également la composition de 2 transducteurs de manière naturelle.
 
 On peut alors reformuler le problème initial de la façon suivante:
 
 \begin{proposition}
     
-Un ensemble de Wang admet un pavage périodique si et seulement si $\exists w \text{ mot bifini }, k \in \N, \text{ avec } w \tau^k w'$
+Un ensemble de Wang admet un pavage périodique si et seulement si $\exists w \text{ mot bifini }, k \in \N, \text{ avec } w \tau^k w'$.
 
 \end{proposition}
 
 \begin{definition}[Equivalence de 2 ensembles de Wang]
     
-On ne s'intéresse plus aux ensembles de Wang que sous le point de vue des transducteurs
+On ne s'intéresse plus aux ensembles de Wang que sous le point de vue des transducteurs.
 
-Ainsi, 2 ensembles de Wang sont équivalents ssi leurs transducteurs définissent la même relation
-
-càd ssi $\forall w,w', \; w \tau w' \iff w \tau' w'$
+Ainsi, 2 ensembles de Wang sont équivalents ssi leurs transducteurs définissent la même relation, càd ssi $\forall w,w', \; w \tau w' \iff w \tau' w'$.
 
 
 \end{definition}
 
 
-\subsection{Générer tous les ensembles de Wang de cardinal moins de 10}
+\subsection{Générer tous les ensembles de Wang de cardinal au plus 10}
 
 Soit $\tau$ un ensemble de Wang. On dit que $\tau$ est minimal apériodique si $\tau$ est apériodique
 et qu'aucun sous-ensemble strict de $\tau$ n'est apériodique.
 
 \;
 
-Dans toute cette partie, on va s'intéresser au graphe orienté G = (V,E) lié au transducteur de $\tau$.
+Dans toute cette partie, on va s'intéresser au graphe orienté $G = (V,E)$ lié au transducteur de $\tau$.
 
 On a alors les résultats suivants:
 
 \begin{lemme}
 
 \begin{itemize}
-    \item Soit $u,v \in V \text{ avec } uv \in E \text{ mais pas de chemin de v vers u}$, alors $\tau$ n'est pas apériodique minimal
-    \item Si G a une composante fortement connexe qui est un cycle, alors $\tau$ n'est pas apériodique minimal
-    \item Si G n'a qu'un sommet, alors $\tau$ n'est pas apériodique
-    \item Si $|E|-|V| \le 2$, alors $\tau$ n'est pas apériodique minimal
+    \item Soit $u,v \in V \text{ avec } uv \in E \text{ mais pas de chemin de v vers u}$, alors $\tau$ n'est pas apériodique minimal.
+    \item Si $G$ a une composante fortement connexe qui est un cycle, alors $\tau$ n'est pas apériodique minimal.
+    \item Si $G$ n'a qu'un sommet, alors $\tau$ n'est pas apériodique.
+    \item Si $|E|-|V| \le 2$, alors $\tau$ n'est pas apériodique minimal.
 \end{itemize}
+
+\thlabel{lem:algo}
 
 \end{lemme}
 
-\begin{preuve}
+\begin{preuve}[\thref{lem:algo}]
     
-Pour le premier point, (uv) correspond à un domino t qui ne peut apparaître qu'une fois par colonne,
+Pour le premier point, $(uv)$ correspond à un domino $t$ qui ne peut apparaître qu'une fois par colonne,
 donc, si $\tau$ pave le plan, alors $\tau \setminus \{t \}$ aussi, d'où le résultat.
 
 \;
 
 Pour le deuxième point, supposons qu'il existe une telle composante. Cela veut donc dire qu'il existe $S \sube T$
-tel qu'à chaque fois qu'un des dominos apparaît, la ligne entière est périodique
+tel qu'à chaque fois qu'un des dominos apparaît, la ligne entière est périodique.
 
-Si T est apériodique, on ne peut pas avoir un pavage où les dominos de S apparaissent dans deux rangées différentes, car on pourrait en déduire un pavage périodique.
+Si $T$ est apériodique, on ne peut pas avoir un pavage où les dominos de $S$ apparaissent dans deux rangées différentes, car on pourrait en déduire un pavage périodique.
 
-En conséquence, les tuiles de S apparaissent dans au plus une ligne, et en utilisant le même argument que précédemment, nous déduisons que $T \setminus S$ pave le plan.
+En conséquence, les tuiles de $S$ apparaissent dans au plus une ligne, et en utilisant le même argument que précédemment, nous déduisons que $T \setminus S$ pave le plan.
 
 \;
 
-Pour le troisième point, si G n'a qu'un sommet mais que $\tau$ pave le plan, alors on peut construire un pavage
+Pour le troisième point, si $G$ n'a qu'un sommet mais que $\tau$ pave le plan, alors on peut construire un pavage
 du plan tel que chaque colonne est la même.
 
 \;
 
-La preuve du dernier point est très longue (plus de 15 pages) et ne sera donc pas détaillée ici.
+La preuve du dernier point est très longue (plus de $15$ pages dans \cite{algo}) et ne sera donc pas détaillée ici.
 
 \end{preuve}
 
-On peut également supposer que G ne contient pas de sommet isolé.
+On peut également supposer que $G$ ne contient pas de sommet isolé.
 
-On génère alors tous les graphes avec au plus 10 arêtes et vérifiant ces différnetes propriétés par ordinateur
-et on trouve qu'il en existe 77809.
+On génère alors tous les graphes avec au plus $10$ arêtes et vérifiant ces différentes propriétés par ordinateur
+et on trouve qu'il en existe $77809$.
 
 \subsection{Tester l'apériodicité}
 
@@ -514,11 +514,11 @@ On veut maintenant tester l'apériodicité de ces différents transducteurs.
 Cependant, on sait qu'un transducteur $\tau$ n'est pas apériodique si:
 
 \begin{itemize}
-    \item $\exists k \in \N$ tel que $\nexists w,w'$ avec $w \tau^k w'$ ($\tau$ ne pave pas le plan)
-    \item $\exists k \in \N$ tel que $\exists w$ avec $w \tau^k w$ ($\tau$ est périodique)
+    \item $\exists k \in \N$ tel que $\nexists w,w'$ avec $w \tau^k w'$ ($\tau$ ne pave pas le plan).
+    \item $\exists k \in \N$ tel que $\exists w$ avec $w \tau^k w$ ($\tau$ est périodique).
 \end{itemize}
 
-L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$ et tester si il y a un des 2 cas précédents,
+L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$ et tester si il y a un des $2$ cas précédents,
 jusqu'à ce que l'ordinateur ne dispose plus d'assez de mémoire (en effet, comme on l'a vu plus haut, ce problème est indécidable).
 Dans ce cas, on doit alors étudier le cas à la main.
 
@@ -528,20 +528,20 @@ On rajoute cependant une petite optimisation, qui est d'enlever les puits et sou
 A l'exception d'un cas, tous les cas furent résolus par l'ordinateur, et ainsi le résultat recherché fut prouvé.
 
 \subsection{Un contre-exemple pour 11 tuiles}
-En appliquant le même algorithme pour 11 tuiles, on peut regarder les cas indécidés par l'ordinateur et les étudier.
+En appliquant le même algorithme pour $11$ tuiles, on peut regarder les cas indécidés par l'ordinateur et les étudier.
 
 Un cas en particulier a alors été exhibé et démontré comme apériodique, prouvant qu'il existe des ensembles de Wang
-apériodiques à 11 dominos
+apériodiques à $11$ dominos.
 
 \begin{thebibliography}{9}
 
-  \bibitem{shifts} N. Ollinger. \emph{Two-by-two Substitution Systems and the Undecidability of the Domino Problem}. 2008. hal-00204625v1.
+  \bibitem{shifts} Nicolas Ollinger. \emph{Two-by-two Substitution Systems and the Undecidability of the Domino Problem}. 2008. hal-00204625v1.
   
-  \bibitem{dom_prob} E. Jeandel \& P. Vannier. The Undecidability of the Domino Problem, \emph{in} \emph{Substitution and Tiling Dynamics: Introduction to Self-inducing Structures}, LNM volume 2273. Springer, 2020
+  \bibitem{dom_prob} Emmanuel Jeandel \& Pascal Vanier. The Undecidability of the Domino Problem, \emph{in} \emph{Substitution and Tiling Dynamics: Introduction to Self-inducing Structures}, LNM volume 2273. Springer, 2020.
 
-  \bibitem{compl} F. Schwarzentruber. \emph{The Complexity of Tiling Problems}. 2019. arXiv:1907.00102v2.
+  \bibitem{compl} François Schwarzentruber. \emph{The Complexity of Tiling Problems}. 2019. arXiv{\string:}1907.00102v2.
 
-  \bibitem{algo} Emmanuel Jeandel \& Michaël Rao \emph{An aperiodic set of 11 Wang tiles}. 2021. arXiv:1506.06492.
+  \bibitem{algo} Emmanuel Jeandel \& Michaël Rao. \emph{An aperiodic set of 11 Wang tiles}. 2021. arXiv{\string:}1506.06492.
 \end{thebibliography}
 
 \end{document}
