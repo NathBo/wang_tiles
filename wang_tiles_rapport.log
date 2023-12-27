@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  26 DEC 2023 14:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  27 DEC 2023 11:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,7 +719,6 @@ Try typing  <return>  to proceed.
 \c@exemples=\count335
 \c@exemple=\count336
 \c@exercice=\count337
-\c@preuve=\count338
 (./wang_tiles_rapport.aux)
 \openout1 = `wang_tiles_rapport.aux'.
 
@@ -748,16 +747,16 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 LaTeX Info: Redefining \up on input line 56.
  (c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count339
+\scratchcounter=\count338
 \scratchdimen=\dimen281
 \scratchbox=\box115
-\nofMPsegments=\count340
-\nofMParguments=\count341
+\nofMPsegments=\count339
+\nofMParguments=\count340
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count342
+\MPscratchCnt=\count341
 \MPscratchDim=\dimen282
-\MPnumerator=\count343
-\makeMPintoPDFobject=\count344
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
 \everyMPtoPDFconversion=\toks48
 ) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -781,7 +780,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (c:/texlive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count345
+\BKM@id=\count344
 ))
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 59.
  (c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
@@ -818,58 +817,58 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 65.
+(Font)              <10.95> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 65.
+(Font)              <8> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 65.
+(Font)              <6> on input line 64.
 
 
-LaTeX Warning: Reference `lem:comp' on page 1 undefined on input line 111.
+LaTeX Warning: Reference `lem:comp' on page 1 undefined on input line 110.
 
 [1
 
 
-{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 141.
+{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 140.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-LaTeX Warning: Reference `prop:Wang->domino' on page 2 undefined on input line 148.
-
-
-LaTeX Warning: Reference `lem:comp' on page 2 undefined on input line 155.
+LaTeX Warning: Reference `prop:Wang->domino' on page 2 undefined on input line 147.
 
 [2{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-LaTeX Warning: Reference `lem:comp' on page 3 undefined on input line 168.
+LaTeX Warning: Reference `lem:comp' on page 3 undefined on input line 154.
 
 
-LaTeX Warning: Reference `fig:tiles' on page 3 undefined on input line 183.
+LaTeX Warning: Reference `lem:comp' on page 3 undefined on input line 167.
 
 
-c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_rapport.tex:189: Package xcolor Error: Undefined color `Gray'.
+LaTeX Warning: Reference `fig:tiles' on page 3 undefined on input line 182.
+
+
+c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_rapport.tex:188: Package xcolor Error: Undefined color `Gray'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.189 ...14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
+l.188 ...14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_rapport.tex:189: Missing \endcsname inserted.
+c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_rapport.tex:188: Missing \endcsname inserted.
 <to be read again> 
                    \let 
-l.189 ...14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
+l.188 ...14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 )
-! Incomplete \ifx; all text was ignored after line 189.
+! Incomplete \ifx; all text was ignored after line 188.
 <inserted text> 
                 \fi 
 <*> ...nts/latex/wang_tiles/wang_tiles_rapport.tex
@@ -885,11 +884,11 @@ the matching `\fi'. I've inserted a `\fi'; this might work.
 
  
 Here is how much of TeX's memory you used:
- 26113 strings out of 474928
- 494012 string characters out of 5763562
+ 26108 strings out of 474928
+ 494014 string characters out of 5763562
  1935785 words of memory out of 5000000
- 47199 multiletter control sequences out of 15000+600000
+ 47196 multiletter control sequences out of 15000+600000
  622437 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,12n,107p,10982b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,12n,107p,10982b,524s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
