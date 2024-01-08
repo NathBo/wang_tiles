@@ -2,10 +2,11 @@
 \title{Le problème des dominos de Wang}
 \author{Matteo Wei et Nathan Boyer}
 \date{2024}
-\graphicspath{ {./images/} }
 \AtBeginSection[]
 
 \usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{tikz}
 
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
@@ -128,6 +129,12 @@ Un transducteur $\tau$ est un automate qui lit une bande d'entrée bifinie et é
     
 \end{figure}
 
+\begin{alertblock}{Définition}
+
+On dit que $w \tau w'$ si $w'$ est une bande de sortie pour la bande d'entrée $w$ et le transducteur $\tau$.
+    
+\end{alertblock}
+
 \end{frame}
 
 \begin{frame}
@@ -137,8 +144,71 @@ On peut voir un pavage comme un transducteur.
 
 En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'état $w$ vers l'état $e$ qui lit $n$ et écrit $s$.
 
+Ainsi, l'ensemble de wang vu en Introduction se réécrit
 
+\begin{center}
 
+\begin{tikzpicture}[node distance={45mm}, main/.style = {draw, circle}] 
+    \node[main] (0) {$0$};
+    \node[main] (1) [right of=0] {$1$};
+    \draw[->] (0) to [out=45,in=135,looseness=1] node[midway, above, pos=0.5] {$0|1$} (1);
+    \draw[->] (1) to [out=-135,in=-45,looseness=1] node[midway, below, pos=0.5] {$1|0$} (0);
+\end{tikzpicture} 
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ensemble de Wang représenté}
+
+\begin{figure}
+
+    \includegraphics[scale = 0.5]{pavage_periodique}
+    \centering
+    
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Reformulation du problème initial}
+
+On définit également la composition de 2 transducteurs de manière naturelle.
+
+On peut alors reformuler le problème initial de la façon suivante:
+
+\begin{block}{Proposition}
+
+Un ensemble de Wang admet un pavage périodique si et seulement si $\exists w \text{ mot bifini }, k \in \N, \text{ avec } w \tau^k w$.
+    
+\end{block}
+
+\begin{block}{Equivalence entre 2 ensembles de Wang}
+
+On ne s'intéresse plus aux ensembles de Wang que sous le point de vue des transducteurs.
+
+Ainsi, 2 ensembles de Wang sont équivalents ssi leurs transducteurs définissent la même relation, càd ssi $\forall w,w', \; w \tau w' \iff w \tau' w'$.
+    
+\end{block}
+
+\end{frame}
+
+\subsection{Générer tous les ensembles de Wang de cardinal au plus 10}
+
+\begin{frame}
+
+\frametitle{Générer tous les ensembles de Wang de cardinal au plus 10}
+
+Pour commencer, on va chercher à générer tous les ensembles de Wang de cardinal au plus 10 (à l'équivalence définie plus tôt près)
+
+\begin{alertblock}{Definition}
+
+Soit $\tau$ un ensemble de Wang. On dit que $\tau$ est minimal apériodique si $\tau$ est apériodique
+et qu'aucun sous-ensemble strict de $\tau$ n'est apériodique.
+    
+\end{alertblock}
+    
 \end{frame}
 
 \end{document}
