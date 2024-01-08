@@ -228,6 +228,35 @@ On a alors les résultats suivants:
 \end{frame}
 
 \begin{frame}
+\frametitle{Schémas de preuve}
+
+Pour le premier point, $(uv)$ correspond à un domino $t$ qui ne peut apparaître qu'une fois par colonne,
+donc, si $\tau$ pave le plan, alors $\tau \setminus \{t \}$ aussi, d'où le résultat.
+
+\;
+
+Pour le deuxième point, supposons qu'il existe une telle composante. Cela veut donc dire qu'il existe $S \sube T$
+tel qu'à chaque fois qu'un des dominos apparaît, la ligne entière est périodique.
+
+Si $T$ est apériodique, on ne peut pas avoir un pavage où les dominos de $S$ apparaissent dans deux rangées différentes, car on pourrait en déduire un pavage périodique.
+
+En conséquence, les tuiles de $S$ apparaissent dans au plus une ligne, et en utilisant le même argument que précédemment, nous déduisons que $T \setminus S$ pave le plan.
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Schémas de preuve}
+
+    Pour le troisième point, si $G$ n'a qu'un sommet mais que $\tau$ pave le plan, alors on peut construire un pavage
+    du plan tel que chaque colonne est la même.
+    
+    \;
+    
+    La preuve du dernier point est très longue (plus de $15$ pages) et ne sera donc pas détaillée ici.
+\end{frame}
+
+\begin{frame}
 \frametitle{Génération de transducteurs}
 
 On génère alors tous les transducteurs d'au plus 10 arêtes ne vérifiant aucune de ces conditions (et qui n'ont pas de sommet isolé).
@@ -279,7 +308,6 @@ En appliquant le même algorithme pour $11$ tuiles, on peut regarder les cas ind
 
 Un cas en particulier a alors été exhibé et démontré comme apériodique, prouvant qu'il existe des ensembles de Wang
 apériodiques à $11$ dominos.
-
 
 \end{frame}
 

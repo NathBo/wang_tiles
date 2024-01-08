@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1704726653 "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" "wang_tiles_beamer.pdf" "wang_tiles_beamer" 1704726655 0
-  "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" 1704726654 8243 acc0f49e09225503ba82803d298e09bf ""
+["pdflatex"] 1704726912 "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" "wang_tiles_beamer.pdf" "wang_tiles_beamer" 1704726914 0
+  "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" 1704726911 9437 a137298d90b67540c26339f0be59cc42 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1696483952 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1696480774 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1696480774 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -210,11 +210,11 @@
   "images/pavage_exemple.png" 1704720123 90776 bb20fc5f081a87ac27e087dd35891fa4 ""
   "images/pavage_periodique.png" 1704720728 3466 8b4d189f629b41de4260cf37433794f7 ""
   "images/transducteur_exemple.png" 1704721931 18479 0b30077579b077ba8a3b811ff5f58936 ""
-  "wang_tiles_beamer.aux" 1704726655 5494 b6356c63313ba3f9ce65928bff39900f "pdflatex"
-  "wang_tiles_beamer.nav" 1704726655 3274 c747ad977f5087e263936070e9123e0e "pdflatex"
-  "wang_tiles_beamer.out" 1704726655 1687 0e4811daf171f51b64478e9f057ba1b5 "pdflatex"
-  "wang_tiles_beamer.tex" 1704726654 8243 acc0f49e09225503ba82803d298e09bf ""
-  "wang_tiles_beamer.toc" 1704726655 531 4791c355b89bc4bbc8d36db6e07308df "pdflatex"
+  "wang_tiles_beamer.aux" 1704726914 5868 dd5dc10e443f8841ea5200be8cc2c3db "pdflatex"
+  "wang_tiles_beamer.nav" 1704726914 3576 a2e3b2fb04e18dcce4f1017fca515a6c "pdflatex"
+  "wang_tiles_beamer.out" 1704726914 1687 df1e26df923e8483e7a75d4e67bb7fde "pdflatex"
+  "wang_tiles_beamer.tex" 1704726911 9437 a137298d90b67540c26339f0be59cc42 ""
+  "wang_tiles_beamer.toc" 1704726914 531 a701e2a36ff11ca03be430422706a7e5 "pdflatex"
   (generated)
   "wang_tiles_beamer.aux"
   "wang_tiles_beamer.log"
