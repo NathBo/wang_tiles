@@ -4,9 +4,17 @@
 \date{2024}
 \AtBeginSection[]
 
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{bookmark}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{amsmath}
 
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
@@ -97,12 +105,320 @@ On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\
 
 \end{frame}
 
-\section{Indécidabilité du problème du domino}
+\begin{frame}{Conjecture de Wang}
 
-\begin{frame}
-    \frametitle{Table des matières}
-    \tableofcontents[currentsection]
-  \end{frame}
+    \begin{block}{Conjecture (Wang, 1961)}
+        Un ensemble de Wang qui pave le plan est périodique.
+    \end{block}
+    
+    \end{frame}
+    
+    \section{Indécidabilité du problème du domino}
+    
+    \begin{frame}
+        \frametitle{Table des matières}
+        \tableofcontents[currentsection]
+    \end{frame}
+    
+    \begin{frame}{Le problème du domino}
+    
+    \begin{alertblock}{Problème du domino}
+        Étant donné un ensemble de Wang, est-il possible de paver le plan avec ?
+    \end{alertblock}
+    
+    \begin{block}<2>{Proposition}
+        La conjecture de Wang implique que le problème du domino est décidable.
+    \end{block}
+    
+    \end{frame}
+    
+    \begin{frame}
+    
+    \begin{block}{Lemme (compacité)}
+        Un ensemble de Wang pave le plan si, et seulement si, il pave des carrés arbitrairement grands.
+    \end{block}
+    
+    \begin{exampleblock}<2>{Preuve de la proposition}
+        Si on suppose la conjecture de Wang, alors étant donné un ensemble de Wang, il existe $n\in\N^*$ tel que:
+        \begin{itemize}
+            \item Soit il ne pave pas le carré $n\times n$.
+            \item Soit il le pave d'une manière complétable en un pavage périodique du plan. 
+        \end{itemize}
+        Donc le problème du domino est décidable.
+    \end{exampleblock}
+    
+    \end{frame}
+    
+    \begin{frame}{Encodage de machines de Turing par des pavages}
+    
+    \begin{alertblock}{Stratégie}
+        Trouver une manière d'encoder une machine de Turing avec un ensemble de Wang, pour ramener le problème du domino au problème de l'arrêt.
+    \end{alertblock}
+    
+    \begin{block}<2>{Idée}
+        Représenter les états de la machine et les lettres avec des contraintes de couleur sur les bords.
+    \end{block}
+    
+    \end{frame}
+    
+    \begin{frame}
+        
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[scale = 0.9]
+              \foreach \x in {2, 5}
+              {\fill [fill = BrickRed] (3*\x,0) rectangle (3*\x+2,2);
+              \fill [fill = White] (3*\x,0) rectangle (3*\x+1/4,2);
+              \fill [fill = White] (3*\x+2-1/4, 0) rectangle (3*\x+2, 2);}
+              \fill [fill = Gray] (16-1/8, 1-1/8) rectangle (16+1/8, 2);
+              \fill [fill = Gray] (16, 1) circle (8 pt);
+              \foreach \x in {2, 3, 4, 5}
+              \fill [fill = BrickRed] (3*\x,-3) rectangle (3*\x+2,-1);
+              \fill [fill = Red] (6, -3) -- (7, -2) -- (8, -3) -- cycle;
+              \fill [fill = Red] (9, -3) -- (10, -2) -- (11, -3) -- cycle;
+              \foreach \x in {2, 3, 4, 5}
+              {\fill [fill = White] (3*\x,-3) rectangle (3*\x+1/4,-1);
+              \fill [fill = White] (3*\x+2-1/4, -3) rectangle (3*\x+2, -1);}
+              \fill [fill = RoyalBlue] (7-1/8, -3) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (7+1/8, -3) --cycle;
+              \fill [fill = Blue] (8, -2+1/8) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (8, -2-1/8) --cycle;
+              \fill [fill = RoyalBlue] (10+1/8, -3) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (10-1/8, -3) --cycle;
+              \fill [fill = Blue] (9, -2+1/8) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (9, -2-1/8) --cycle;
+              \fill [fill = Black] (8-1/4, -3+3/2-1/8) rectangle (8, -3+3/2+1/8);
+              \fill [fill = Black] (14, -3+1/2+1/8) -- (14-1/4, -3+1/2) -- (14, -3+1/2-1/8) -- cycle;
+              \fill [fill = Black] (9+1/4, -3+1/2-1/8) rectangle (9, -3+1/2+1/8);
+              \fill [fill = Black] (15, -3+3/2+1/8) -- (15+1/4, -3+3/2) -- (15, -3+3/2-1/8) -- cycle;
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+              \fill [fill = Blue] (13, -3+1) circle (8 pt);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+              \fill [fill = Blue] (13, -3+1) circle (8 pt);
+              \fill [fill = Blue] (16-1/8, -3+1-1/8) rectangle (16+1/8, -3+2);
+              \fill [fill = Blue] (16+1/8, -3+1-1/8) rectangle (15, -3+1+1/8);
+              \fill [fill = Blue] (16, -3+1) circle (8 pt);
+              \foreach \x in {2, 3, 4, 5}
+              \draw (3*\x,-3) rectangle (3*\x+2,-1);
+              \foreach \x in {2, 5}
+              \draw (3*\x,0) rectangle (3*\x+2,2);
+              \node at (7, -0.5) {$\mathrm{let}(s)$};
+              \node at (16, -0.5) {$\mathrm{init}(s)$};
+              \node at (7, -3.5) {$\mathrm{trans}_\rightarrow(\delta_\rightarrow)$};
+              \node at (13, -3.5) {$\mathrm{head}_\leftarrow(q,s)$};
+              \node at (10, -3.5) {$\mathrm{trans}_\leftarrow(\delta_\leftarrow)$};
+              \node at (16, -3.5) {$\mathrm{head}_\rightarrow(q,s)$};
+            \end{tikzpicture}
+            \label{fig:tilesidee}
+          \end{figure}
+    
+    \end{frame}
+    
+    \begin{frame}
+        
+    \begin{alertblock}{Problèmes}
+        \begin{itemize}
+            \item On n'impose pas la présence d'une tête de lecture.
+            \item On n'impose pas l'unicité d'une tête de lecture.
+            \item On n'impose pas la présence d'un état initial.
+            \item On ne contrôle pas le mot de départ.
+        \end{itemize}
+    \end{alertblock}
+    
+    \end{frame}
+    
+    \begin{frame}{Le problème du domino fixé}
+    
+    \begin{alertblock}{Définition}
+        Le problème du domino fixé est celui de décider, étant donné un ensemble de Wang $T$ et un domino $t$ de l'ensemble, s'il existe un $T$-pavage de $\N^2$ avec $t$ en $(0,0)$.
+    \end{alertblock}
+    
+    \begin{block}{Proposition (compacité)}
+        C'est le cas si, et seulement si, il existe des $T$-pavages de carrés arbitrairement grands avec $t$ au coin sud-ouest. 
+    \end{block}
+    
+    \end{frame}
+    
+    \begin{frame}
+    
+    \begin{block}{Proposition}
+        Le problème du domino fixé n'est pas décidable.
+    \end{block}
+    
+    \begin{exampleblock}<2>{Preuve}
+        Étant donné une machine de Turing, on construit un ensemble de Wang qui simule les calculs de la machine sur le mot vide, et on se sert de la contrainte de domino fixé pour rajouter l'état initial.
+    \end{exampleblock}
+    
+    \end{frame}
+    
+    \begin{frame}
+        
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[scale = 0.75]
+              \fill [fill = Gray] (14.5-1/8, 4-1/8) rectangle (14.5+1/8, 5);
+              \fill [fill = Gray] (14.5, 4) circle (8 pt);
+              \fill [fill = Black] (13.5,3) rectangle (1/4+13.5,5);
+              \fill [fill = Black] (13.5,3) rectangle (15.5,3+1/4);
+              \fill [fill = Black] (3,3) rectangle (5,3+1/4);
+              \foreach \x in {1, 2, 4}
+              \fill [fill = BrickRed] (3*\x,0) rectangle (3*\x+2,2);
+              \fill [fill = Red] (6, 0) -- (7, 1) -- (8, 0) -- cycle;
+              \foreach \x in {1, 2, 3, 4, 5}
+              \fill [fill = BrickRed] (3*\x,-3) rectangle (3*\x+2,-1);
+              \fill [fill = Red] (6, -3) -- (7, -2) -- (8, -3) -- cycle;
+              \fill [fill = Red] (9, -3) -- (10, -2) -- (11, -3) -- cycle;
+              \foreach \x in {1, 2, 4}
+              {\fill [fill = Black] (3*\x,0) rectangle (3*\x+1/4,2);
+              \fill [fill = White] (3*\x+2-1/4, 0) rectangle (3*\x+2, 2);}
+              \foreach \x in {1, 2, 3, 4, 5}
+              {\fill [fill = White] (3*\x,-3) rectangle (3*\x+1/4,-1);
+              \fill [fill = White] (3*\x+2-1/4, -3) rectangle (3*\x+2, -1);}
+              \fill [fill = RoyalBlue] (7-1/8, 0) -- (7-1/8, 1+1/8) -- (7+1/8, 1-1/8) -- (7+1/8, 0) --cycle;
+              \fill [fill = Blue] (8, 1+1/8) -- (7-1/8, 1+1/8) -- (7+1/8, 1-1/8) -- (8, 1-1/8) --cycle;
+              \fill [fill = Blue] (13-1/8, 1-1/8) rectangle (13+1/8, 2);
+              \fill [fill = Blue] (13-1/8, 1-1/8) rectangle (14, 1+1/8);
+              \fill [fill = Blue] (13, 1) circle (8 pt);
+              \fill [fill = Black] (8-1/4, 3/2-1/8) rectangle (8, 3/2+1/8);
+              \fill [fill = Black] (14, 1/2+1/8) -- (14-1/4, 1/2) -- (14, 1/2-1/8) -- cycle;
+              \fill [fill = RoyalBlue] (7-1/8, -3) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (7+1/8, -3) --cycle;
+              \fill [fill = Blue] (8, -2+1/8) -- (7-1/8, -2+1/8) -- (7+1/8, -2-1/8) -- (8, -2-1/8) --cycle;
+              \fill [fill = RoyalBlue] (10+1/8, -3) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (10-1/8, -3) --cycle;
+              \fill [fill = Blue] (9, -2+1/8) -- (10+1/8, -2+1/8) -- (10-1/8, -2-1/8) -- (9, -2-1/8) --cycle;
+              \fill [fill = Black] (8-1/4, -3+3/2-1/8) rectangle (8, -3+3/2+1/8);
+              \fill [fill = Black] (14, -3+1/2+1/8) -- (14-1/4, -3+1/2) -- (14, -3+1/2-1/8) -- cycle;
+              \fill [fill = Black] (9+1/4, -3+1/2-1/8) rectangle (9, -3+1/2+1/8);
+              \fill [fill = Black] (15, -3+3/2+1/8) -- (15+1/4, -3+3/2) -- (15, -3+3/2-1/8) -- cycle;
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+              \fill [fill = Blue] (13, -3+1) circle (8 pt);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (13+1/8, -3+2);
+              \fill [fill = Blue] (13-1/8, -3+1-1/8) rectangle (14, -3+1+1/8);
+              \fill [fill = Blue] (13, -3+1) circle (8 pt);
+              \fill [fill = Blue] (16-1/8, -3+1-1/8) rectangle (16+1/8, -3+2);
+              \fill [fill = Blue] (16+1/8, -3+1-1/8) rectangle (15, -3+1+1/8);
+              \fill [fill = Blue] (16, -3+1) circle (8 pt);
+              \foreach \x in {1, 2, 4}
+              \draw (3*\x,0) rectangle (3*\x+2,2);
+              \foreach \x in {1, 4.5}
+              \draw (3*\x,3) rectangle (3*\x+2,5);
+              \foreach \x in {1, 2, 3, 4, 5}
+              \draw (3*\x,-3) rectangle (3*\x+2,-1);
+              \node at (4, 2.5) {${\mathrm{let}}^{\mathrm S}(\_)$};
+              \node at (14.5, 2.5) {$\mathrm{init}$};
+              \node at (4, -0.5) {${\mathrm{let}}^\mathrm W(s)$};
+              \node at (7, -0.5) {$\mathrm{trans}_\rightarrow^\mathrm W(\delta_\rightarrow)$};
+              \node at (13, -0.5) {$\mathrm{head}_\leftarrow^\mathrm W(q,s)$};
+              \node at (4, -3.5) {${\mathrm{let}}(s)$};
+              \node at (7, -3.5) {$\mathrm{trans}_\rightarrow(\delta_\rightarrow)$};
+              \node at (13, -3.5) {$\mathrm{head}_\leftarrow(q,s)$};
+              \node at (10, -3.5) {$\mathrm{trans}_\leftarrow(\delta_\leftarrow)$};
+              \node at (16, -3.5) {$\mathrm{head}_\rightarrow(q,s)$};
+            \end{tikzpicture}
+            \label{fig:tiles}
+          \end{figure}
+    \end{frame}
+    
+    \begin{frame}{Vers le problème du domino}
+    
+    \begin{block}{Proposition}
+        Le problème du domino n'est pas décidable.
+    \end{block}
+    
+    \begin{exampleblock}<2>{Idée de la preuve}
+        Construire un ensemble dont tous les pavages font apparaître des carrés vides arbitrairement grands. Le combiner avec l'ensemble de Wang de départ pour paver ces carrés avec l'ensemble de départ, en imposant la tuile sud-ouest.\\
+        On déduit alors le résultat de l'indécidabilité du problème du domino fixé.
+    \end{exampleblock}
+    
+    \end{frame}
+    
+    \begin{frame}{Complétude de problèmes de pavage}
+        
+    \begin{block}{Idée}
+        Comme on peut facilement encoder l'exécution d'une machine de Turing avec des ensembles de Wang, il est facile d'obtenir des résultats de complétude pour des problèmes de pavage. 
+    \end{block}
+    
+    \begin{alertblock}<2>{Définition (problèmes $\mathrm{TILING}$)}
+        Soit $h:\N\to\N$ et $w:\N\to\N$ tel que $w\ge\id_\N$. Le problème de décision $\mathrm{TILING}(h,w)$, consiste, étant donné un ensemble de Wang $T$, quatre couleurs $N$, $S$, $E$ et $W$, et une suite de couleurs de longueur $n$, consiste à décider s'il existe un $T$-pavage d'un carré de taille $w(n)\times h(n)$ avec les contraintes supplémentaires que les bords nord, est et ouest soient des couleurs correspondantes et que le bord sud commence par la suite de couleurs donnée, puis continue avec la couleur $S$.\\
+        On note $\mathrm{TILING}(*,w)$, le même problème, où l'on enlève les contraintes de hauteur.
+    \end{alertblock}
+    
+    \end{frame}
+    
+    \begin{frame}
+    
+    \begin{block}{Proposition}
+        Soit $k\in\N$. $\mathrm{TILING}(\exp_k,\exp_k)$ est $k\mathrm{NEXPTIME}$-complet.
+      \end{block}
+    
+    \begin{block}{Proposition}
+        Soit $k\in\N$. $\mathrm{TILING}(*,\exp_k)$ est $k\mathrm{EXPSPACE}$-complet.
+    \end{block}
+    
+    \begin{exampleblock}<2>{Preuve}
+        Dans les deux cas, on vérifie qu'un pavage est solution avec les bonnes contraintes (on a besoin de stocker qu'un seul rang).\\
+        Dans l'autre sens, étant donné un problème dans la classe de complexité, on construit l'ensemble de Wang correspondant à une machine de Turing qui le décide, et on simule les calculs en imposant la suite de couleurs en entrée.
+    \end{exampleblock}
+    
+    \end{frame}
+    
+    \begin{frame}
+    
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[scale = 0.6]
+              \foreach \x in {1, 2, 3, 4, 5, 6}
+              \fill [fill = BrickRed] (3*\x,-6) rectangle (3*\x+2,-4);
+              \fill [fill = Red] (6, -6) -- (7, -5) -- (8, -6) -- cycle;
+              \fill [fill = Red] (9, -6) -- (10, -5) -- (11, -6) -- cycle;
+              \foreach \x in {1, 6}
+              \fill [fill = BrickRed] (3*\x,-3) rectangle (3*\x+2,-1);
+              \foreach \x in {1, 2, 3, 4, 5, 6}
+              {\fill [fill = White] (3*\x,-6) rectangle (3*\x+1/4,-4);
+              \fill [fill = White] (3*\x+2-1/4, -6) rectangle (3*\x+2, -4);}
+              \fill [fill = RoyalBlue] (7-1/8, -6) -- (7-1/8, -5+1/8) -- (7+1/8, -5-1/8) -- (7+1/8, -6) --cycle;
+              \fill [fill = Blue] (8, -5+1/8) -- (7-1/8, -5+1/8) -- (7+1/8, -5-1/8) -- (8, -5-1/8) --cycle;
+              \fill [fill = RoyalBlue] (10+1/8, -6) -- (10+1/8, -5+1/8) -- (10-1/8, -5-1/8) -- (10-1/8, -6) --cycle;
+              \fill [fill = Blue] (9, -5+1/8) -- (10+1/8, -5+1/8) -- (10-1/8, -5-1/8) -- (9, -5-1/8) --cycle;
+              \fill [fill = Black] (9+1/4, -6+1/2-1/8) rectangle (9, -6+1/2+1/8);
+              \fill [fill = Black] (14, -6+1/2+1/8) -- (14-1/4, -6+1/2) -- (14, -6+1/2-1/8) -- cycle;
+              \fill [fill = Black] (9+1/4, -6+1/2-1/8) rectangle (9, -6+1/2+1/8);
+              \fill [fill = Black] (15, -6+3/2+1/8) -- (15+1/4, -6+3/2) -- (15, -6+3/2-1/8) -- cycle;
+              \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (13+1/8, -6+2);
+              \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (14, -6+1+1/8);
+              \fill [fill = Blue] (13, -6+1) circle (8 pt);
+              \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (13+1/8, -6+2);
+              \fill [fill = Blue] (13-1/8, -6+1-1/8) rectangle (14, -6+1+1/8);
+              \fill [fill = Blue] (13, -6+1) circle (8 pt);
+              \fill [fill = Blue] (16-1/8, -6+1-1/8) rectangle (16+1/8, -6+2);
+              \fill [fill = Blue] (16+1/8, -6+1-1/8) rectangle (15, -6+1+1/8);
+              \fill [fill = Blue] (16, -6+1) circle (8 pt);
+              \foreach \x in {1, 6}
+              {\fill [fill = White] (3*\x,-3) rectangle (3*\x+1/4,-1);
+              \fill [fill = White] (3*\x+2-1/4, -3) rectangle (3*\x+2, -1);
+              \fill [fill = Gray] (3*\x, -1) -- (3*\x+1/4, -1-1/4) -- (3*\x+2-1/4, -1-1/4) -- (3*\x+2, -1) -- cycle;
+              \draw (3*\x,-3) rectangle (3*\x+2,-1);}
+              \foreach \y in {-1, -2}
+              {\fill [fill = Black] (19-1/8, 3*\y) rectangle (19+1/8, 3*\y+1);
+              \fill [fill = Black] (19, 3*\y+1) circle (8 pt);}
+              \foreach \x in {1, 2, 3, 4, 5, 6}
+              \draw (3*\x,-6) rectangle (3*\x+2,-4);
+            \end{tikzpicture}
+            \caption{On impose le gris comme couleur nord, le blanc pour le trois autres bords (aussi la couleur du symbole blanc)}
+            \label{fig:tiles2}
+          \end{figure}
+    
+    \end{frame}
+    
+    \begin{frame}
+        
+    \begin{block}{Corollaire}
+        $\mathrm{TILING}(\id_\N,\id_\N)$ est $\mathrm{NP}$-complet, et $\mathrm{TILING}(*,\id_\N)$ est $\mathrm{PSPACE}$-complet.
+    \end{block}
+    
+    \begin{exampleblock}<2>{Preuve}
+        Cas $k=0$.
+    \end{exampleblock}
+    
+    \end{frame}
 
 \section{Nombre minimal de dominos pour un ensemble de Wang apériodique}
 
