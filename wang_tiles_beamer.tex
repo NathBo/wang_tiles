@@ -1,23 +1,41 @@
 \documentclass{beamer}
-%Information to be included in the title page:
 \title{Le problème des dominos de Wang}
 \author{Matteo Wei et Nathan Boyer}
 \date{2024}
 \graphicspath{ {./images/} }
 \AtBeginSection[]
 
+\usepackage{graphicx}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\U}{\mathbb U}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\ind}{\mathbbb 1}
+\newcommand{\clC}{\mathrm C}
+\renewcommand{\O}{\mathrm O}
+\renewcommand{\o}{\mathrm o}
 \newcommand{\sube}{\subseteq}
+\renewcommand{\H}{\mathrel{\mathcal H}}
+\newcommand{\V}{\mathrel{\mathcal V}}
+
 
 \begin{document}
 
 \frame{\titlepage}
 
+\section{Introduction}
+
 \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents[]
+    \frametitle{Table des matières}
+    \tableofcontents[currentsection]
   \end{frame}
   
-\section{Introduction}
 \begin{frame}
 \frametitle{Ensemble de Wang}
 
@@ -29,6 +47,97 @@
 \end{alertblock}
 
 \includegraphics{ensemble_de_wang_exemple}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pavage}
+
+\begin{alertblock}{Definition}
+
+    Soit $X \sube \Z^2$ et $\tau$ un ensemble de Wang.
+
+    Un pavage de X par $\tau$ est une fonction $f:X \to T$ avec:
+    
+    \[\forall (x,y) \in X, {f(x,y)}_e = {f(x+1,y)}_w \land {f(x,y)}_n = {f(x,y+1)}_s.\]
+    
+    Un pavage du plan par $\tau$ est un pavage de $\Z^2$.
+    
+\end{alertblock}
+
+\begin{figure}
+
+    \includegraphics[scale = 0.3]{pavage_exemple}
+    \centering
+    
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pavage périodique et apériodique}
+
+\begin{alertblock}{Definition}
+
+On dit que $\tau$ est périodique s'il existe un pavage du plan périodique par $\tau$
+(càd tel que $\exists (u,v) \in {\Z^*}^2, \forall (x,y) \in \Z^2, f(x,y) = f(x+u,y)=f(x,y+v)$).
+
+On dit que $\tau$ est apériodique s'il existe au moins un pavage du plan par $\tau$ mais que tous ses pavages ne sont pas périodiques.
+    
+\end{alertblock}
+
+\begin{figure}
+
+    \includegraphics[scale = 0.5]{pavage_periodique}
+    \centering
+    
+\end{figure}
+
+\end{frame}
+
+\section{Indécidabilité du problème du domino}
+
+\begin{frame}
+    \frametitle{Table des matières}
+    \tableofcontents[currentsection]
+  \end{frame}
+
+\section{Nombre minimal de dominos pour un ensemble de Wang apériodique}
+
+\begin{frame}
+    \frametitle{Table des matières}
+    \tableofcontents[currentsection]
+  \end{frame}
+
+\subsection{Définitions préalables}
+
+\begin{frame}
+\frametitle{Transducteur}
+
+\begin{alertblock}{Definition}
+
+Un transducteur $\tau$ est un automate qui lit une bande d'entrée bifinie et écrit sur une bande de sortie bifinie.
+    
+\end{alertblock}
+
+\begin{figure}
+
+    \includegraphics[scale = 1]{transducteur_exemple}
+    \centering
+    
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lien entre dominos et transducteurs}
+
+On peut voir un pavage comme un transducteur.
+
+En effet, $\forall t = (w,e,s,n) \in T$, on dit qu'il y a une transition de l'état $w$ vers l'état $e$ qui lit $n$ et écrit $s$.
+
+
 
 \end{frame}
 

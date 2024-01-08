@@ -1,1 +1,4 @@
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Indécidabilité du problème du domino}{6}{0}{2}
+\beamer@sectionintoc {3}{Nombre minimal de dominos pour un ensemble de Wang apériodique}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Définitions préalables}{8}{0}{3}
