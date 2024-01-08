@@ -35,8 +35,10 @@
 \headcommand {\beamer@subsectionentry {0}{3}{2}{12}{Générer tous les ensembles de Wang de cardinal au plus 10}}
 \headcommand {\slideentry {3}{2}{1}{12/12}{Générer tous les ensembles de Wang de cardinal au plus 10}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@partpages {1}{12}}
-\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\beamer@sectionpages {7}{12}}
-\headcommand {\beamer@documentpages {12}}
-\headcommand {\gdef \inserttotalframenumber {12}}
+\headcommand {\slideentry {3}{2}{2}{13/13}{Générer tous les ensembles de Wang de cardinal au plus 10}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\beamer@sectionpages {7}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\gdef \inserttotalframenumber {13}}
