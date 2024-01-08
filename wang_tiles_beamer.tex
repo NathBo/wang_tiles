@@ -212,7 +212,75 @@ et qu'aucun sous-ensemble strict de $\tau$ n'est apériodique.
 \end{frame}
 
 \begin{frame}
-\frametitle{}
+\frametitle{Quelques propriétés sur les transducteurs apériodiques}
+
+On s'intéresse ici au graphe orienté $G = (V,E)$ lié au transducteur de $\tau$.
+
+On a alors les résultats suivants:
+
+\begin{itemize}
+    \item Soit $u,v \in V \text{ avec } uv \in E \text{ mais pas de chemin de v vers u}$, alors $\tau$ n'est pas apériodique minimal.
+    \item Si $G$ a une composante fortement connexe qui est un cycle, alors $\tau$ n'est pas apériodique minimal.
+    \item Si $G$ n'a qu'un sommet, alors $\tau$ n'est pas apériodique.
+    \item Si $|E|-|V| \le 2$, alors $\tau$ n'est pas apériodique minimal.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Génération de transducteurs}
+
+On génère alors tous les transducteurs d'au plus 10 arêtes ne vérifiant aucune de ces conditions (et qui n'ont pas de sommet isolé).
+
+On trouve alors qu'il en existe $77809$.
+
+\end{frame}
+
+\subsection{Tester l'apériodicité}
+
+\begin{frame}
+\frametitle{Critères d'apériodicité}
+
+On veut maintenant tester l'apériodicité de ces différents transducteurs.
+
+Cependant, on sait qu'un transducteur $\tau$ n'est pas apériodique si:
+
+\begin{itemize}
+    \item $\exists k \in \N$ tel que $\nexists w,w'$ avec $w \tau^k w'$ ($\tau$ ne pave pas le plan).
+    \item $\exists k \in \N$ tel que $\exists w$ avec $w \tau^k w$ ($\tau$ est périodique).
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithme pour tester l'apériodicité}
+
+L'algorithme est alors évident: Pour chaque $k \in \N$, calculer $\tau^k$ et tester si il y a un des $2$ cas précédents,
+jusqu'à ce que l'ordinateur ne dispose plus d'assez de mémoire (en effet, comme on l'a vu plus haut, ce problème est indécidable).
+Dans ce cas, on doit alors étudier le cas à la main.
+
+On rajoute cependant une petite optimisation, qui est d'enlever les puits et sources des graphes à chaque étape pour les simplifier
+(les puits et les sources ne pouvant pas servir à grand chose quand on veut créer une suite bifinie).
+
+\begin{block}{Résultat}
+
+A l'exception d'un cas (qui dût être vérifié à la main), tous les cas furent résolus par l'ordinateur, et ainsi le résultat recherché fut prouvé.
+    
+\end{block}
+
+\end{frame}
+
+\subsection{Un contre-exemple pour 11 tuiles}
+
+\begin{frame}
+\frametitle{Un contre-exemple pour 11 tuiles}
+
+En appliquant le même algorithme pour $11$ tuiles, on peut regarder les cas indécidés par l'ordinateur et les étudier.
+
+Un cas en particulier a alors été exhibé et démontré comme apériodique, prouvant qu'il existe des ensembles de Wang
+apériodiques à $11$ dominos.
+
+
 \end{frame}
 
 \end{document}

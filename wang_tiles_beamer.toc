@@ -3,3 +3,5 @@
 \beamer@sectionintoc {3}{Nombre minimal de dominos pour un ensemble de Wang apériodique}{7}{0}{3}
 \beamer@subsectionintoc {3}{1}{Définitions préalables}{8}{0}{3}
 \beamer@subsectionintoc {3}{2}{Générer tous les ensembles de Wang de cardinal au plus 10}{12}{0}{3}
+\beamer@subsectionintoc {3}{3}{Tester l'apériodicité}{15}{0}{3}
+\beamer@subsectionintoc {3}{4}{Un contre-exemple pour 11 tuiles}{17}{0}{3}

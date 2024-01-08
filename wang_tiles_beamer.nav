@@ -37,8 +37,20 @@
 \headcommand {\beamer@framepages {12}{12}}
 \headcommand {\slideentry {3}{2}{2}{13/13}{Générer tous les ensembles de Wang de cardinal au plus 10}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@partpages {1}{13}}
-\headcommand {\beamer@subsectionpages {12}{13}}
-\headcommand {\beamer@sectionpages {7}{13}}
-\headcommand {\beamer@documentpages {13}}
-\headcommand {\gdef \inserttotalframenumber {13}}
+\headcommand {\slideentry {3}{2}{3}{14/14}{Générer tous les ensembles de Wang de cardinal au plus 10}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {12}{14}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{15}{Tester l'apériodicité}}
+\headcommand {\slideentry {3}{3}{1}{15/15}{Tester l'apériodicité}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {3}{3}{2}{16/16}{Tester l'apériodicité}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {15}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{17}{Un contre-exemple pour 11 tuiles}}
+\headcommand {\slideentry {3}{4}{1}{17/17}{Un contre-exemple pour 11 tuiles}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@sectionpages {7}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {17}}
