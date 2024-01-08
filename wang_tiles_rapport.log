@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  27 DEC 2023 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.5)  8 JAN 2024 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,10 +715,9 @@ Try typing  <return>  to proceed.
 \c@conjecture=\count331
 \c@remarque=\count332
 \c@question=\count333
-\c@definition=\count334
-\c@exemples=\count335
-\c@exemple=\count336
-\c@exercice=\count337
+\c@exemples=\count334
+\c@exemple=\count335
+\c@exercice=\count336
 No file wang_tiles_rapport.aux.
 \openout1 = `wang_tiles_rapport.aux'.
 
@@ -747,16 +746,16 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 LaTeX Info: Redefining \up on input line 56.
 (c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
+\scratchcounter=\count337
 \scratchdimen=\dimen281
 \scratchbox=\box115
-\nofMPsegments=\count339
-\nofMParguments=\count340
+\nofMPsegments=\count338
+\nofMParguments=\count339
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count341
+\MPscratchCnt=\count340
 \MPscratchDim=\dimen282
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
 \everyMPtoPDFconversion=\toks48
 ) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -780,7 +779,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (c:/texlive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count344
+\BKM@id=\count343
 ))
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 59.
  (c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
@@ -884,10 +883,10 @@ the matching `\fi'. I've inserted a `\fi'; this might work.
 
  
 Here is how much of TeX's memory you used:
- 26105 strings out of 474928
- 493933 string characters out of 5763562
+ 26097 strings out of 474928
+ 493833 string characters out of 5763562
  1935785 words of memory out of 5000000
- 47195 multiletter control sequences out of 15000+600000
+ 47190 multiletter control sequences out of 15000+600000
  622437 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,12n,107p,10982b,524s stack positions out of 10000i,1000n,20000p,200000b,200000s
