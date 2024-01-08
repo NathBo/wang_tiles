@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1704718349 "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" "wang_tiles_beamer.pdf" "wang_tiles_beamer" 1704718351 0
-  "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" 1704718348 295 a4050b30b2f9949e6b73dcab3aeaef0c ""
+["pdflatex"] 1704718655 "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" "wang_tiles_beamer.pdf" "wang_tiles_beamer" 1704718657 0
+  "c:/Users/natha/Documents/latex/wang_tiles/wang_tiles_beamer.tex" 1704718654 325 a2ac7951a568d8fee20a19ae0aeffb08 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1696483952 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1696482193 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1696482193 1316 b636689f1933f24d1294acdf6041daaa ""
@@ -167,10 +167,10 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1696498450 4727531 c9dcce7e974053f3ba684418f58c0098 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1696498750 8183298 1d9280ef43f64d0c727930864226eff8 ""
   "c:/texlive/2023/texmf.cnf" 1696498365 713 e69b156964470283e0530f5060668171 ""
-  "wang_tiles_beamer.aux" 1704718351 1111 c199807168c38c82b82ac0caa44c9285 "pdflatex"
-  "wang_tiles_beamer.nav" 1704718351 395 640a03f4d3f0f705896c1d8375ddfa75 "pdflatex"
-  "wang_tiles_beamer.out" 1704718350 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "wang_tiles_beamer.tex" 1704718348 295 a4050b30b2f9949e6b73dcab3aeaef0c ""
+  "wang_tiles_beamer.aux" 1704718657 1111 c199807168c38c82b82ac0caa44c9285 "pdflatex"
+  "wang_tiles_beamer.nav" 1704718657 395 640a03f4d3f0f705896c1d8375ddfa75 "pdflatex"
+  "wang_tiles_beamer.out" 1704718657 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "wang_tiles_beamer.tex" 1704718654 325 a2ac7951a568d8fee20a19ae0aeffb08 ""
   (generated)
   "wang_tiles_beamer.aux"
   "wang_tiles_beamer.log"
